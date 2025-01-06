@@ -24,7 +24,6 @@ const nextConfig = {
       { hostname: "snapcraft.io" },
       { hostname: "flathub.org" },
       { hostname: "lh3.googleusercontent.com" },
-      { hostname: "visitor-badge.laobi.icu" },
     ],
     unoptimized: true,
   },

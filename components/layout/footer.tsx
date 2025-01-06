@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import Link from "next/link";
 import { LngProps } from "@/types/i18next-lng";
 import { useTranslation } from "@/i18n/client";
@@ -50,12 +49,6 @@ function Footer(props: LngProps) {
         {VERCEL_GIT_COMMIT_SHA && (
           <>{VERCEL_GIT_COMMIT_SHA.substring(0, 8)}&nbsp;</>
         )}
-        <Image
-          src="https://visitor-badge.laobi.icu/badge?page_id=watermark-assistant.kjxbyz.com"
-          width={60}
-          height={20}
-          alt="visitor badge"
-        />
       </span>
     </div>
   );
