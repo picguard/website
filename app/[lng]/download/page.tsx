@@ -21,7 +21,7 @@ export default function Home({
   };
 }) {
   const { t } = useTranslation(lng, "common");
-  const [platform, setPlatform] = useState<SystemOS>("android");
+  const [platform, setPlatform] = useState<SystemOS>();
   const [data, setData] = useState<Release>({});
 
   const availableAssets = useMemo(() => {
@@ -64,10 +64,8 @@ export default function Home({
     const substrings = ["iP", "Android", "Macintosh", "Win", "X11"];
     const idx = substrings.findIndex((s) => userAgent.includes(s));
     console.log("userAgent", userAgent, "idx", idx);
-    if (idx !== -1) {
-      const detectPlatform = platforms[idx];
-      setPlatform(detectPlatform);
-    }
+    const detectPlatform = idx === -1 ? "android" : platforms[idx];
+    setPlatform(detectPlatform);
   }, []);
 
   return (
@@ -128,15 +126,17 @@ export default function Home({
       <div
         className={`mb-20 mt-16 w-full max-w-screen-xl animate-fade-up px-5 xl:px-0`}
       >
-        <div className="mt-6 grid w-full max-w-screen-xl animate-fade-up grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          <StoreCard lng={lng} platform={platform} />
-          <BinariesCard
-            lng={lng}
-            platform={platform}
-            assets={availableAssets[platform]}
-          />
-          <PkgCard lng={lng} platform={platform} />
-        </div>
+        {platform && (
+          <div className="mt-6 grid w-full max-w-screen-xl animate-fade-up grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            <StoreCard lng={lng} platform={platform} />
+            <BinariesCard
+              lng={lng}
+              platform={platform}
+              assets={availableAssets[platform]}
+            />
+            <PkgCard lng={lng} platform={platform} />
+          </div>
+        )}
       </div>
     </>
   );
