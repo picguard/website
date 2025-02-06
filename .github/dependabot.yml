@@ -17,3 +17,33 @@ updates:
     schedule:
       interval: "daily"
     open-pull-requests-limit: 10
+    groups:
+      react-dependencies:
+        patterns: [ "react", "react-dom", "@types/react", "@types/react-dom" ]
+      next-dependencies:
+        patterns: [ "next", "eslint-config-next", "@next/third-parties" ]
+      commitlint-dependencies:
+        patterns: [ "@commitlint/cli", "@commitlint/config-conventional" ]
+      tsparticles-dependencies:
+        patterns: [ "tsparticles", "@tsparticles/engine", "@tsparticles/react" ]
+    ignore:
+      - dependency-name: react
+        versions: [">=19"]
+      - dependency-name: react-dom
+        versions: [">=19"]
+      - dependency-name: "@types/react"
+        versions: [">=19"]
+      - dependency-name: "@types/react-dom"
+        versions: [">=19"]
+      - dependency-name: "@types/node"
+        versions: [">=19"]
+      - dependency-name: next
+        versions: [">=15"]
+      - dependency-name: eslint-config-next
+        versions: [">=15"]
+      - dependency-name: "@next/third-parties"
+        versions: [">=15"]
+      - dependency-name: eslint
+        versions: [ ">=9" ]
+      - dependency-name: tailwindcss
+        versions: [">=4"]
