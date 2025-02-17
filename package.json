@@ -28,7 +28,7 @@
     "framer-motion": "^12.4.2",
     "http-status": "^2.1.0",
     "i18next": "^24.2.2",
-    "i18next-browser-languagedetector": "^8.0.2",
+    "i18next-browser-languagedetector": "^8.0.3",
     "i18next-resources-to-backend": "^1.2.1",
     "joi": "^17.13.3",
     "lodash": "^4.17.21",
