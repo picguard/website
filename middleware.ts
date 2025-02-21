@@ -9,7 +9,7 @@ acceptLanguage.languages(languages);
 export const config = {
   // matcher: '/:lng*'
   matcher: [
-    "/((?!backend|_next/static|_next/image|images|videos|assets|favicon.ico|logo.png|sitemap.xml|.well-known|sw.js).*)",
+    "/((?!backend|_next/static|_next/image|images|videos|assets|favicon.ico|logo.png|sitemap.xml|robots.txt|.well-known|sw.js).*)",
     { source: "/" },
   ],
 };
