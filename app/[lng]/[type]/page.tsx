@@ -5,17 +5,18 @@ import PostItem from "@/components/post/post-item";
 import LatestPosts from "@/components/post/latest-posts";
 // import Topics from "@/components/post/topics";
 import { basePath, domain } from "@/constants";
+import { useTranslation } from "@/i18n";
 
 export async function generateMetadata({
-  params,
+  params: { lng },
 }: {
   params: { lng: string };
 }): Promise<Metadata | undefined> {
+  const { t } = await useTranslation(lng, "header"); // eslint-disable-line react-hooks/rules-of-hooks
+  const { t: tc } = await useTranslation(lng, "common"); // eslint-disable-line react-hooks/rules-of-hooks
   return {
-    title: params.lng === "en" ? "Blog" : "博客",
-    description: `${
-      params.lng === "en" ? "Blog" : "博客"
-    } - Your pictures, your signature.`,
+    title: t("title"),
+    description: `${t("title")} - ${tc("slogan")}`,
     metadataBase: new URL(domain),
     icons: {
       icon: `${basePath}/logo.png`,

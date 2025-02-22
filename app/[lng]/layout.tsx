@@ -13,6 +13,7 @@ import ScrollToTop from "@/components/layout/scroll-to-top";
 import { languages } from "@/i18n/settings";
 import Footer from "@/components/layout/footer";
 import { basePath, domain } from "@/constants";
+import { useTranslation } from "@/i18n";
 import { sfPro, inter } from "./fonts";
 import Particles from "./particles";
 import ThemeProvider from "./theme-provider";
@@ -30,13 +31,15 @@ const Header = dynamic(() => import("@/components/layout/header"), {
 });
 
 export async function generateMetadata({
-  params,
+  params: { lng },
 }: {
   params: { lng: string };
 }): Promise<Metadata | undefined> {
+  const { t } = await useTranslation(lng, "header"); // eslint-disable-line react-hooks/rules-of-hooks
+  const { t: tc } = await useTranslation(lng, "common"); // eslint-disable-line react-hooks/rules-of-hooks
   return {
-    title: "PicGuard",
-    description: "PicGuard - Your pictures, your signature.",
+    title: t("title"),
+    description: `${t("title")} - ${tc("slogan")}`,
     metadataBase: new URL(domain),
     icons: {
       icon: `${basePath}/logo.png`,
