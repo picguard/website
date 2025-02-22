@@ -12,7 +12,7 @@ import CookieYes from "@/components/shared/cookie-yes";
 import ScrollToTop from "@/components/layout/scroll-to-top";
 import { languages } from "@/i18n/settings";
 import Footer from "@/components/layout/footer";
-import { domain } from "@/constants";
+import { basePath, domain } from "@/constants";
 import { sfPro, inter } from "./fonts";
 import Particles from "./particles";
 import ThemeProvider from "./theme-provider";
@@ -36,12 +36,12 @@ export async function generateMetadata({
 }): Promise<Metadata | undefined> {
   return {
     title: "PicGuard",
-    description:
-      "PicGuard - This app can add watermarks to pictures to prevent them from being used maliciously.",
+    description: "PicGuard - Your pictures, your signature.",
     metadataBase: new URL(domain),
     icons: {
-      icon: "/logo.png",
+      icon: `${basePath}/logo.png`,
     },
+    manifest: `${basePath}/manifest.json`,
   };
 }
 

@@ -48,3 +48,20 @@ export const systemExtensions: SystemExtensions = {
 
 export const pageSize: number = 10;
 export const sitemapUrls = ["download", "releases", "support"];
+
+export const manifest = {
+  name: "PicGuard",
+  short_name: "PicGuard",
+  description: "Your pictures, your signature.",
+  start_url: `${basePath}/`,
+  display: "standalone",
+  background_color: "#fff",
+  theme_color: "#fff",
+  icons: [
+    {
+      src: `${domain}/logo.png`,
+      sizes: "any",
+      type: "image/png",
+    },
+  ],
+};

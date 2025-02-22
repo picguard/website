@@ -4,7 +4,7 @@ import { allPosts } from "contentlayer/generated";
 import PostItem from "@/components/post/post-item";
 import LatestPosts from "@/components/post/latest-posts";
 // import Topics from "@/components/post/topics";
-import { domain } from "@/constants";
+import { basePath, domain } from "@/constants";
 
 export async function generateMetadata({
   params,
@@ -15,11 +15,12 @@ export async function generateMetadata({
     title: params.lng === "en" ? "Blog" : "博客",
     description: `${
       params.lng === "en" ? "Blog" : "博客"
-    } - This app can add watermarks to pictures to prevent them from being used maliciously.`,
+    } - Your pictures, your signature.`,
     metadataBase: new URL(domain),
     icons: {
-      icon: "/logo.png",
+      icon: `${basePath}/logo.png`,
     },
+    manifest: `${basePath}/manifest.json`,
   };
 }
 
