@@ -3,14 +3,14 @@
         "apps": [],
         "details": [
             {
-                "appID": "43V9N6VW8L.com.kjxbyz.watermarkassistant",
+                "appID": "43V9N6VW8L.com.kjxbyz.picguard",
                 "paths": [ "*" ]
             }
         ]
     },
     "webcredentials": {
         "apps": [
-            "43V9N6VW8L.com.kjxbyz.watermarkassistant"
+            "43V9N6VW8L.com.kjxbyz.picguard"
         ]
     }
 }
