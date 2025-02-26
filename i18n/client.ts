@@ -32,7 +32,13 @@ i18next
     ...getOptions(),
     lng: undefined, // let detect the language on client side
     detection: {
+      // https://github.com/i18next/i18next-browser-languageDetector
       order: ["path", "htmlTag", "cookie", "navigator"],
+      // keys or params to lookup language from
+      lookupQuerystring: "lng",
+      lookupCookie: cacheLngKey,
+      // lookupLocalStorage: cacheLngKey,
+      // lookupSessionStorage: cacheLngKey,
     },
     preload: runsOnServerSide ? languages : [],
   });
