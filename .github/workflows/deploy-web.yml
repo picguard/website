@@ -2,20 +2,13 @@ name: Deploy Web
 
 on:
   workflow_dispatch:
-  pull_request:
-    paths-ignore:
-      - '.github/FUNDING.yml'
-      - 'LICENSE'
-      - 'README.md'
-    branches:
-      - static-export
   push:
     paths-ignore:
       - '.github/FUNDING.yml'
       - 'LICENSE'
       - 'README.md'
     branches:
-      - static-export
+      - main
 
 # Declare default permissions as readonly.
 permissions: read-all
