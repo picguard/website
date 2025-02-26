@@ -3,9 +3,9 @@
     "relation": ["delegate_permission/common.handle_all_urls"],
     "target": {
       "namespace": "android_app",
-      "package_name": "com.kjxbyz.watermarkassistant",
+      "package_name": "com.kjxbyz.picguard",
       "sha256_cert_fingerprints": [
-        "E0:BE:5D:D1:C5:1F:AA:B4:FF:6F:40:95:B0:78:A5:56:32:71:BB:92:23:27:54:FC:B9:80:19:57:E7:8A:66:2E"
+        "A3:E3:51:F9:70:18:98:52:30:DF:B4:69:FF:38:26:4C:6F:76:5D:21:2B:CC:46:01:5E:8C:F7:CC:5B:D6:E6:70"
       ]
     }
   }
