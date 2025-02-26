@@ -3,7 +3,7 @@ import Link from "next/link";
 import { LngProps } from "@/types/i18next-lng";
 import { useTranslation } from "@/i18n/client";
 
-const VERCEL_GIT_COMMIT_SHA = process.env.VERCEL_GIT_COMMIT_SHA;
+const NEXT_PUBLIC_GIT_COMMIT_SHA = process.env.NEXT_PUBLIC_GIT_COMMIT_SHA;
 
 function Footer(props: LngProps) {
   const { t } = useTranslation(props.lng, "footer");
@@ -43,8 +43,8 @@ function Footer(props: LngProps) {
       <span className="mt-2 flex flex-wrap items-center justify-center text-sm text-gray-500 dark:text-gray-400 sm:text-center">
         &copy;&nbsp;{`2023${fullYear === 2023 ? "" : `-${fullYear}`}`}&nbsp;
         {th("title")}.&nbsp;{t("copyright")}&nbsp;
-        {VERCEL_GIT_COMMIT_SHA && (
-          <>{VERCEL_GIT_COMMIT_SHA.substring(0, 8)}&nbsp;</>
+        {NEXT_PUBLIC_GIT_COMMIT_SHA && (
+          <>{NEXT_PUBLIC_GIT_COMMIT_SHA.substring(0, 8)}&nbsp;</>
         )}
       </span>
     </div>
