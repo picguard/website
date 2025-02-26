@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[550],{550:function(e){e.exports=JSON.parse('{"title":"PicGuard","menus":{"system":"Auto Mode","dark":"Dark Mode","light":"Light Mode","goto":"Go to PicGuard","blog":"Blog"},"languages":{"en":"English","zh":"Chinese","it":"Italian"}}')}}]);

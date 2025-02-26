@@ -1,0 +1,6 @@
+User-Agent: *
+Allow: /
+Disallow: /zh/
+Disallow: /_next/
+
+Sitemap: https://www.picguard.app/sitemap.xml

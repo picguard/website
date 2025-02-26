@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[6322],{6322:function(e){e.exports=JSON.parse('{"app-store":"App Stores","app-store-description":"Recommended for most users.","binaries":"Binaries","binaries-description":"Download for offline usage.","package-managers":"Package Managers","package-managers-description":"Install with terminal."}')}}]);

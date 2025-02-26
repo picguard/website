@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[7373],{57373:function(e){e.exports=JSON.parse('{"title":"PicGuard","menus":{"system":"跟随系统","dark":"黑暗模式","light":"白天模式","goto":"打开PicGuard","blog":"博客"},"languages":{"en":"英文","zh":"中文","it":"意大利语"}}')}}]);

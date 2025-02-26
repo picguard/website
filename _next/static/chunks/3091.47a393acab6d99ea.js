@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[3091],{13091:function(e){e.exports=JSON.parse('{"slogan":"给图片添加水印, 防止被恶意使用.","get-picguard":"获取PicGuard","comments":"在全球范围内被提及","beta":"测试版","store":"应用商店","latest":"最新版本","table-of-contents":"目录","load-more":"加载更多","more-versions":"更多版本","features":"特点","download":"下载"}')}}]);

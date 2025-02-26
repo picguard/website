@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[1047],{91047:function(e){e.exports=JSON.parse('{"app-store":"应用商店","app-store-description":"适合大多数用户","binaries":"二进制文件","binaries-description":"可供离线使用的下载","package-managers":"包管理器","package-managers-description":"通过终端安装"}')}}]);
