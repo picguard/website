@@ -4,8 +4,21 @@ import { allPosts } from "contentlayer/generated";
 import PostItem from "@/components/post/post-item";
 import LatestPosts from "@/components/post/latest-posts";
 // import Topics from "@/components/post/topics";
-import { basePath, domain } from "@/constants";
+import { domain } from "@/constants";
 import { useTranslation } from "@/i18n";
+import { lngRegex } from "@/i18n/settings";
+
+export async function generateStaticParams() {
+  const urls = Array.from(
+    new Set(allPosts.map((post) => post.slug.replaceAll(lngRegex, ""))),
+  );
+  return urls.map((slug) => {
+    const slugs = slug.split("/");
+    return {
+      type: slugs.at(0),
+    };
+  });
+}
 
 export async function generateMetadata({
   params: { lng },
@@ -19,9 +32,9 @@ export async function generateMetadata({
     description: `${t("title")} - ${tc("slogan")}`,
     metadataBase: new URL(domain),
     icons: {
-      icon: `${basePath}/logo.png`,
+      icon: `${domain}/logo.png`,
     },
-    manifest: `${basePath}/manifest.json`,
+    manifest: `${domain}/manifest.json`,
   };
 }
 

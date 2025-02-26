@@ -3,12 +3,10 @@ import { SystemExtensions, SystemOSKeys, SystemOSName } from "@/types/common";
 export const cacheLngKey: string = "__picguard_lng__";
 export const cacheThemeKey: string = "__picguard_theme__";
 
-export const basePath =
-  process.env.NEXT_PUBLIC_VERCEL_ENV === "production" ? "" : "";
 export const domain =
   process.env.NODE_ENV === "production"
-    ? `https://www.picguard.app${basePath}`
-    : `http://localhost:3000${basePath}`;
+    ? "https://www.picguard.app"
+    : "http://localhost:3000";
 
 export const platformNames: SystemOSName = {
   android: "Android",
@@ -53,7 +51,7 @@ export const manifest = {
   name: "PicGuard",
   short_name: "PicGuard",
   description: "Your pictures, your signature.",
-  start_url: `${basePath}/`,
+  start_url: `/`,
   display: "standalone",
   background_color: "#fff",
   theme_color: "#fff",

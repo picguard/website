@@ -7,9 +7,10 @@ import BinariesCard from "@/components/download/binaries-card";
 import PkgCard from "@/components/download/pkg-card";
 import StoreCard from "@/components/download/store-card";
 import { platforms, platformNames } from "@/constants";
-import { getLatestRelease } from "@/request";
 import { useTranslation } from "@/i18n/client";
 import { matcher } from "@/lib/utils";
+import github from "@/lib/github";
+
 import type { SystemOS } from "@/types/common";
 import type { Asset, Release } from "@/types/github";
 
@@ -22,7 +23,7 @@ export default function Home({
 }) {
   const { t } = useTranslation(lng, "common");
   const [platform, setPlatform] = useState<SystemOS>();
-  const [data, setData] = useState<Release>({});
+  const [data, setData] = useState<Release>();
 
   const availableAssets = useMemo(() => {
     const packages: Record<SystemOS, Asset[]> = {
@@ -42,12 +43,16 @@ export default function Home({
   }, [data?.assets]);
 
   const loadData = () => {
-    getLatestRelease()
+    github.repos
+      .getLatestRelease({
+        owner: process.env.GH_REPO_OWNER,
+        repo: process.env.GH_REPO,
+      })
       .then((res) => {
-        if (res?.code === 0) {
+        if (res?.status === 200) {
           setData(res?.data || {});
         } else {
-          console.error(res?.msg);
+          console.error(res?.status);
         }
       })
       .catch((error) => {
