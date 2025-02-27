@@ -46,7 +46,9 @@ jobs:
           NEXT_PUBLIC_WEBSITE_GLOBAL_GRAY: ${{ secrets.NEXT_PUBLIC_WEBSITE_GLOBAL_GRAY }}
 
       - name: Copy files to web
-        run: cp LICENSE README.md ./out
+        run: |
+          cp LICENSE README.md ./out
+          cp -R ./out/en/* ./out/
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
