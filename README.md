@@ -1,7 +1,7 @@
 # websites
 
 [![Deploy](https://github.com/picguard/websites/actions/workflows/deploy-web.yml/badge.svg)](https://github.com/picguard/websites/actions/workflows/deploy-web.yml)
-[![Deploy](https://github.com/picguard/websites/actions/workflows/pr.yml/badge.svg)](https://github.com/picguard/websites/actions/workflows/pr.yml)
+[![PR](https://github.com/picguard/websites/actions/workflows/pr.yml/badge.svg)](https://github.com/picguard/websites/actions/workflows/pr.yml)
 
 ## Setup
 
