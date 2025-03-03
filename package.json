@@ -68,7 +68,7 @@
     "@tailwindcss/line-clamp": "^0.4.4",
     "@tailwindcss/typography": "^0.5.16",
     "@types/js-cookie": "^3.0.6",
-    "@types/lodash": "^4.17.15",
+    "@types/lodash": "^4.17.16",
     "@types/ms": "^2.1.0",
     "@types/node": "^18.19.76",
     "@types/react": "^18.3.18",
