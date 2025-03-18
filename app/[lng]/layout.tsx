@@ -16,6 +16,7 @@ import { domain } from "@/constants";
 import { useTranslation } from "@/i18n";
 import { sfPro, inter } from "./fonts";
 import Particles from "./particles";
+import CookiesProvider from "./cookies-provider";
 import ThemeProvider from "./theme-provider";
 
 // 是否显示背景特效
@@ -75,25 +76,27 @@ export default async function RootLayout({
           "flex min-h-screen flex-col",
         )}
       >
-        <NextTopLoader height={1} />
-        <ThemeProvider>
-          {NEXT_PUBLIC_SHOW_PARTICLES && <Particles />}
-          <Header lng={params.lng} />
-          <main
-            id="main"
-            className="flex w-full flex-1 flex-col items-center justify-center pt-32"
-          >
-            {children}
-          </main>
-          <Footer lng={params.lng} />
-          <Toaster />
-        </ThemeProvider>
-        <ScrollToTop
-          smooth
-          component={
-            <BiArrowToTop className="mx-auto my-0 h-5 w-5 text-gray-700" />
-          }
-        />
+        <CookiesProvider>
+          <NextTopLoader height={1} />
+          <ThemeProvider>
+            {NEXT_PUBLIC_SHOW_PARTICLES && <Particles />}
+            <Header lng={params.lng} />
+            <main
+              id="main"
+              className="flex w-full flex-1 flex-col items-center justify-center pt-32"
+            >
+              {children}
+            </main>
+            <Footer lng={params.lng} />
+            <Toaster />
+          </ThemeProvider>
+          <ScrollToTop
+            smooth
+            component={
+              <BiArrowToTop className="mx-auto my-0 h-5 w-5 text-gray-700" />
+            }
+          />
+        </CookiesProvider>
       </body>
       <CookieYes lng={params.lng} />
       {GA_TRACKING_ID && <GoogleAnalytics gaId={GA_TRACKING_ID} />}
