@@ -93,7 +93,7 @@
   },
   "overrides": {
     "muse-ui": {
-      "react-hook-form": "^7.54.2"
+      "react-hook-form": "^7.55.0"
     }
   }
 }
