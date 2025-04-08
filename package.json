@@ -85,7 +85,7 @@
     "prop-types": "^15.8.1",
     "sort-package-json": "^3.0.0",
     "tailwindcss": "^3.4.17",
-    "typescript": "5.8.2"
+    "typescript": "5.8.3"
   },
   "packageManager": "pnpm@10.6.1",
   "engines": {
