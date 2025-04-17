@@ -153,8 +153,8 @@ importers:
         specifier: ^1.1.2
         version: 1.1.2(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       zod:
-        specifier: ^3.24.2
-        version: 3.24.2
+        specifier: ^3.24.3
+        version: 3.24.3
     devDependencies:
       '@commitlint/cli':
         specifier: ^19.8.0
@@ -6090,8 +6090,8 @@ packages:
   yoga-wasm-web@0.1.2:
     resolution: {integrity: sha512-8SkgawHcA0RUbMrnhxbaQkZDBi8rMed8pQHixkFF9w32zGhAwZ9/cOHWlpYfr6RCx42Yp3siV45/jPEkJxsk6w==}
 
-  zod@3.24.2:
-    resolution: {integrity: sha512-lY7CDW43ECgW9u1TcT3IoXHflywfVqDYze4waEz812jR/bZ8FHDsl7pFQoSZTz5N+2NqRXs8GBwnAwo3ZNxqhQ==}
+  zod@3.24.3:
+    resolution: {integrity: sha512-HhY1oqzWCQWuUqvBFnsyrtZRhyPeR7SUGv+C4+MsisMuVfSPx8HpwWqH8tRahSlt6M3PiFAcoeFhZAqIXTxoSg==}
 
   zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
@@ -6343,7 +6343,7 @@ snapshots:
       ts-pattern: 5.7.0
       unified: 11.0.5
       yaml: 2.7.1
-      zod: 3.24.2
+      zod: 3.24.3
     transitivePeerDependencies:
       - '@effect-ts/otel-node'
       - acorn
@@ -6363,7 +6363,7 @@ snapshots:
       ts-pattern: 5.7.0
       unified: 11.0.5
       yaml: 2.7.1
-      zod: 3.24.2
+      zod: 3.24.3
     transitivePeerDependencies:
       - '@effect-ts/otel-node'
       - acorn
@@ -11362,7 +11362,7 @@ snapshots:
       tailwind-merge: 1.14.0
       ts-morph: 22.0.0
       vaul: 0.9.4(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      zod: 3.24.2
+      zod: 3.24.3
     transitivePeerDependencies:
       - '@babel/core'
       - '@effect-ts/otel-node'
@@ -13034,6 +13034,6 @@ snapshots:
 
   yoga-wasm-web@0.1.2: {}
 
-  zod@3.24.2: {}
+  zod@3.24.3: {}
 
   zwitch@2.0.4: {}
