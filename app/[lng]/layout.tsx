@@ -27,9 +27,7 @@ const NEXT_PUBLIC_WEBSITE_GLOBAL_GRAY =
 // Google tag (gtag.js)
 const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GOOGLE_ID;
 
-const Header = dynamic(() => import("@/components/layout/header"), {
-  ssr: false,
-});
+const Header = dynamic(() => import("@/components/layout/header"));
 
 export async function generateMetadata({
   params: { lng },

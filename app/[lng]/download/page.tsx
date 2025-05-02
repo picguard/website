@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useMemo, useState } from "react";
+import React, { use, useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import Balancer from "react-wrap-balancer";
 import { ToggleGroup, ToggleGroupItem } from "muse-ui";
@@ -14,13 +14,10 @@ import github from "@/lib/github";
 import type { SystemOS } from "@/types/common";
 import type { Asset, Release } from "@/types/github";
 
-export default function Home({
-  params: { lng },
-}: {
-  params: {
-    lng: string;
-  };
-}) {
+type Params = Promise<{ lng: string }>;
+
+export default function Home({ params }: { params: Params }) {
+  const { lng } = use(params);
   const { t } = useTranslation(lng, "common");
   const [platform, setPlatform] = useState<SystemOS>();
   const [data, setData] = useState<Release>();
@@ -39,7 +36,6 @@ export default function Home({
         [];
     });
     return packages;
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data?.assets]);
 
   const loadData = () => {
@@ -77,14 +73,14 @@ export default function Home({
     <>
       <div className="w-full max-w-xl px-5 xl:px-0">
         <h1
-          className="font-display animate-fade-up bg-clip-text text-center text-3xl font-bold tracking-[-0.02em] text-black/80 opacity-0 drop-shadow-sm dark:text-white/80 md:text-7xl md:leading-[5rem]"
+          className="font-display animate-fade-up bg-clip-text text-center text-3xl font-bold tracking-[-0.02em] text-black/80 opacity-0 drop-shadow-sm md:text-7xl md:leading-[5rem] dark:text-white/80"
           style={{ animationDelay: "0.15s", animationFillMode: "forwards" }}
         >
           <Balancer>{t("download")}</Balancer>
         </h1>
       </div>
       <p
-        className="mt-4 animate-fade-up text-center text-sm opacity-0"
+        className="animate-fade-up mt-4 text-center text-sm opacity-0"
         style={{ animationDelay: "0.25s", animationFillMode: "forwards" }}
       >
         <Balancer>
@@ -129,10 +125,10 @@ export default function Home({
         ))}
       </ToggleGroup>
       <div
-        className={`mb-20 mt-16 w-full max-w-screen-xl animate-fade-up px-5 xl:px-0`}
+        className={`animate-fade-up mt-16 mb-20 w-full max-w-screen-xl px-5 xl:px-0`}
       >
         {platform && (
-          <div className="mt-6 grid w-full max-w-screen-xl animate-fade-up grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="animate-fade-up mt-6 grid w-full max-w-screen-xl grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
             <StoreCard lng={lng} platform={platform} />
             <BinariesCard
               lng={lng}

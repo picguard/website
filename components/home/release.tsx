@@ -29,7 +29,6 @@ export default function Release({
         ) || [];
     });
     return packages;
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [release?.assets]);
 
   const assets = useMemo(() => {
@@ -69,7 +68,7 @@ export default function Release({
       className="flex flex-wrap items-center justify-between gap-x-6 gap-y-4 py-5 sm:flex-nowrap"
     >
       <div>
-        <div className="flex items-center gap-2 pb-2 text-2xl font-semibold leading-6 text-gray-900 dark:text-gray-100">
+        <div className="flex items-center gap-2 pb-2 text-2xl leading-6 font-semibold text-gray-900 dark:text-gray-100">
           <a
             href={release.html_url}
             className="hover:underline max-md:max-w-[calc(100%-91px-0.5rem)]"

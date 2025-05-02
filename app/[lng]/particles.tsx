@@ -7,7 +7,7 @@ import { useAppTheme } from "@/lib/hooks";
 
 export default function Particle() {
   const { resolvedTheme: theme } = useAppTheme();
-  const particlesRef = useRef<Container>();
+  const particlesRef = useRef<Container | undefined>(undefined);
 
   const [init, setInit] = useState(false);
 

@@ -2,7 +2,7 @@ import "flag-icons/css/flag-icons.min.css";
 import { LngProps } from "@/types/i18next-lng";
 
 const Comment = (
-  props: LngProps & { author: String; comment: String; flag?: String },
+  props: LngProps & { author: string; comment: string; flag?: string },
 ) => {
   return (
     <div className="mx-4 flex w-56 flex-col rounded-lg bg-gray-100 p-4 hover:cursor-pointer dark:bg-gray-700">

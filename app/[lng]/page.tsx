@@ -1,5 +1,5 @@
 "use client";
-import React, { useCallback } from "react";
+import React, { use, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Balancer from "react-wrap-balancer";
@@ -24,23 +24,20 @@ import { useAppTheme } from "@/lib/hooks";
 import { useTranslation } from "@/i18n/client";
 import { allPosts } from "contentlayer/generated";
 
-export default function Home({
-  params,
-}: {
-  params: {
-    lng: string;
-  };
-}) {
-  const { t } = useTranslation(params.lng, "common");
-  const { t: tf } = useTranslation(params.lng, "home");
-  const { t: th } = useTranslation(params.lng, "header");
-  const { t: ts } = useTranslation(params.lng, "support");
-  const { t: tm } = useTranslation(params.lng, "comments");
+type Params = Promise<{ lng: string }>;
+
+export default function Home({ params }: { params: Params }) {
+  const { lng } = use(params);
+  const { t } = useTranslation(lng, "common");
+  const { t: tf } = useTranslation(lng, "home");
+  const { t: th } = useTranslation(lng, "header");
+  const { t: ts } = useTranslation(lng, "support");
+  const { t: tm } = useTranslation(lng, "comments");
 
   const { resolvedTheme: theme } = useAppTheme();
 
   const post = allPosts
-    .filter((post) => post.slug.startsWith(`${params.lng}/blog`))
+    .filter((post) => post.slug.startsWith(`${lng}/blog`))
     .sort((a, b) => {
       return new Date(a.publishedAt) > new Date(b.publishedAt) ? -1 : 1;
     })
@@ -58,7 +55,7 @@ export default function Home({
     }) => {
       return (
         <div
-          className={`mt-14 w-full max-w-screen-xl animate-fade-up px-5 xl:px-0 ${className || ""}`}
+          className={`animate-fade-up mt-14 w-full max-w-screen-xl px-5 xl:px-0 ${className || ""}`}
         >
           <div className="flex flex-row flex-nowrap items-center justify-center text-center text-3xl before:mr-5 before:h-[1px] before:max-w-xs before:flex-1 before:border-b-[1px] before:border-dashed before:border-b-gray-300 before:content-[''] after:ml-5 after:h-[1px] after:max-w-xs after:flex-1 after:border-b-[1px] after:border-dashed after:border-b-gray-300 after:content-[''] dark:before:border-b-gray-600 dark:after:border-b-gray-600">
             {title}
@@ -82,7 +79,7 @@ export default function Home({
     }) => {
       return (
         <SectionTip title={title} className={className}>
-          <div className="mt-6 grid w-full max-w-screen-xl animate-fade-up grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="animate-fade-up mt-6 grid w-full max-w-screen-xl grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {links.map(({ title, description, demo, url }) => (
               <Card
                 key={title}
@@ -152,7 +149,7 @@ export default function Home({
           <Link
             href={`/${post.slug}`}
             rel="noreferrer"
-            className="mx-auto mb-12 flex max-w-fit animate-fade-up items-center justify-center space-x-2 overflow-hidden rounded-full bg-blue-100 px-7 py-2 transition-colors hover:bg-blue-200"
+            className="animate-fade-up mx-auto mb-12 flex max-w-fit items-center justify-center space-x-2 overflow-hidden rounded-full bg-blue-100 px-7 py-2 transition-colors hover:bg-blue-200"
           >
             <FaBlog className="h-5 w-5 text-[#3e8fc8]" />
             <p className="text-sm font-semibold text-[#3e8fc8]">{post.title}</p>
@@ -170,13 +167,13 @@ export default function Home({
           />
         </div>
         <h1
-          className="font-display animate-fade-up bg-clip-text text-center text-4xl font-bold tracking-[-0.02em] text-black/80 opacity-0 drop-shadow-sm dark:text-white/80 md:text-7xl md:leading-[5rem]"
+          className="font-display animate-fade-up bg-clip-text text-center text-4xl font-bold tracking-[-0.02em] text-black/80 opacity-0 drop-shadow-sm md:text-7xl md:leading-[5rem] dark:text-white/80"
           style={{ animationDelay: "0.15s", animationFillMode: "forwards" }}
         >
           <Balancer>{th("title")}</Balancer>
         </h1>
         <p
-          className="mt-6 animate-fade-up text-center text-[#3e8fc8] opacity-0 md:text-xl"
+          className="animate-fade-up mt-6 text-center text-[#3e8fc8] opacity-0 md:text-xl"
           style={{ animationDelay: "0.25s", animationFillMode: "forwards" }}
         >
           <Balancer>
@@ -193,11 +190,11 @@ export default function Home({
           </Balancer>
         </p>
         <div
-          className="mx-auto mt-6 flex animate-fade-up items-center justify-center space-x-5 opacity-0"
+          className="animate-fade-up mx-auto mt-6 flex items-center justify-center space-x-5 opacity-0"
           style={{ animationDelay: "0.3s", animationFillMode: "forwards" }}
         >
           <Link
-            className="flex min-w-32 max-w-fit items-center justify-center space-x-2 rounded-full bg-blue-300 px-5 py-2 text-sm text-gray-700 shadow-md transition-colors hover:bg-blue-400 dark:bg-blue-500 dark:text-white/80 dark:hover:bg-blue-600"
+            className="flex max-w-fit min-w-32 items-center justify-center space-x-2 rounded-full bg-blue-300 px-5 py-2 text-sm text-gray-700 shadow-md transition-colors hover:bg-blue-400 dark:bg-blue-500 dark:text-white/80 dark:hover:bg-blue-600"
             href="download"
             rel="noopener noreferrer"
           >
@@ -207,7 +204,7 @@ export default function Home({
             </p>
           </Link>
           <Link
-            className="flex min-w-32 max-w-fit items-center justify-center space-x-2 rounded-full border border-gray-300 bg-white px-5 py-2 text-sm text-gray-600 shadow-md transition-colors hover:border-gray-800 dark:bg-black dark:text-white/80"
+            className="flex max-w-fit min-w-32 items-center justify-center space-x-2 rounded-full border border-gray-300 bg-white px-5 py-2 text-sm text-gray-600 shadow-md transition-colors hover:border-gray-800 dark:bg-black dark:text-white/80"
             href="support"
             rel="noopener noreferrer"
           >
@@ -226,7 +223,7 @@ export default function Home({
       <SectionTip title={t("comments")} className="mt-32">
         <div className="w-full px-5 xl:px-0">
           <div
-            className="mt-6 flex w-full animate-fade-up items-center justify-center space-x-5 opacity-0"
+            className="animate-fade-up mt-6 flex w-full items-center justify-center space-x-5 opacity-0"
             style={{ animationDelay: "0.3s", animationFillMode: "forwards" }}
           >
             <Marquee
@@ -241,7 +238,7 @@ export default function Home({
                 return (
                   <Comment
                     key={idx}
-                    lng={params.lng}
+                    lng={lng}
                     author={tm(`author${idx}`)}
                     flag={tm(`flag${idx}`)}
                     comment={tm(`comment${idx}`)}
@@ -252,14 +249,14 @@ export default function Home({
           </div>
         </div>
       </SectionTip>
-      <SectionTip title={t("get-picguard")} className="mb-20 mt-32">
+      <SectionTip title={t("get-picguard")} className="mt-32 mb-20">
         <div className="w-full px-5 xl:px-0">
           <div
-            className="mt-6 flex w-full animate-fade-up items-center justify-center space-x-5 opacity-0"
+            className="animate-fade-up mt-6 flex w-full items-center justify-center space-x-5 opacity-0"
             style={{ animationDelay: "0.3s", animationFillMode: "forwards" }}
           >
             <Link
-              className="flex min-w-32 max-w-fit items-center justify-center space-x-2 rounded-lg bg-blue-400 px-5 py-2 text-sm text-gray-700 shadow-md transition-colors hover:bg-blue-500 dark:bg-blue-500 dark:text-white/80 dark:hover:bg-blue-600"
+              className="flex max-w-fit min-w-32 items-center justify-center space-x-2 rounded-lg bg-blue-400 px-5 py-2 text-sm text-gray-700 shadow-md transition-colors hover:bg-blue-500 dark:bg-blue-500 dark:text-white/80 dark:hover:bg-blue-600"
               href="download"
               target="_blank"
               rel="noopener noreferrer"

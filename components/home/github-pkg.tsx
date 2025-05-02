@@ -22,7 +22,7 @@ export default function GitHubPkg(
     children: React.ReactNode;
   },
 ) {
-  const { lng, assets, disabled, wrapperClassName, children } = props;
+  const { assets, disabled, wrapperClassName, children } = props;
   const [openPopover, setOpenPopover] = useState(false);
   const [openDrawer, setOpenDrawer] = useState(false);
 
@@ -39,7 +39,7 @@ export default function GitHubPkg(
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent>
-          <div className="no-scrollbar w-full min-w-[14rem] overflow-scroll rounded-md bg-white p-2 dark:bg-black max-md:max-h-[60vh] md:max-h-[60vh]">
+          <div className="no-scrollbar w-full min-w-[14rem] overflow-scroll rounded-md bg-white p-2 max-md:max-h-[60vh] md:max-h-[60vh] dark:bg-black">
             {assets.map((asset) => {
               return (
                 <DropdownMenuItem
@@ -70,13 +70,13 @@ export default function GitHubPkg(
           </Button>
         </DrawerTrigger>
         <DrawerContent>
-          <div className="min-w-sm no-scrollbar mx-auto w-full overflow-scroll rounded-md p-2 max-md:max-h-[60vh] md:max-h-[60vh]">
+          <div className="no-scrollbar mx-auto w-full min-w-sm overflow-scroll rounded-md p-2 max-md:max-h-[60vh] md:max-h-[60vh]">
             {assets.map((asset) => {
               return (
                 <Link
                   key={asset.id}
                   href={asset.browser_download_url || ""}
-                  className="relative flex w-full items-center justify-start space-x-2 rounded-md px-2 py-3 text-left text-sm font-medium transition-all duration-75 hover:bg-accent hover:text-accent-foreground"
+                  className="hover:bg-accent hover:text-accent-foreground relative flex w-full items-center justify-start space-x-2 rounded-md px-2 py-3 text-left text-sm font-medium transition-all duration-75"
                 >
                   <p className="text-sm">{asset.name}</p>
                 </Link>

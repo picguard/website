@@ -1,14 +1,23 @@
-/* eslint-disable @next/next/no-img-element */
 import { ImageResponse } from "next/og";
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
+import { domain } from "@/constants";
+import { languages } from "@/i18n/settings";
 
-export const runtime = "edge";
+// export const runtime = "edge";
 export const alt = "PicGuard";
 export const contentType = "image/png";
+export const dynamic = "force-static";
 
-export default async function OG() {
-  const sfPro = await fetch(
-    new URL("./fonts/SF-Pro-Display-Medium.otf", import.meta.url),
-  ).then((res) => res.arrayBuffer());
+export async function generateStaticParams() {
+  return languages.map((lng: string) => ({ lng }));
+}
+
+export default async function OG({ params }: { params: { slug: string } }) {
+  // Font loading, process.cwd() is Next.js project directory
+  const sfPro = await readFile(
+    join(process.cwd(), "public", "fonts", "SF-Pro-Display-Medium.otf"),
+  );
 
   return new ImageResponse(
     (
@@ -26,7 +35,7 @@ export default async function OG() {
         }}
       >
         <img
-          src="/logo.png"
+          src={`${domain}/logo.png`}
           alt={alt}
           tw="w-20 h-20 mb-4 opacity-95 rounded-full"
         />

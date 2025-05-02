@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect, useCallback } from "react";
+import React, { use, useState, useEffect, useCallback } from "react";
 import ReleaseComp from "@/components/home/release";
 import { Loading } from "@/components/shared/icons";
 import { useTranslation } from "@/i18n/client";
@@ -8,14 +8,11 @@ import github from "@/lib/github";
 
 import type { Release } from "@/types/github";
 
-export default function Releases({
-  params,
-}: {
-  params: {
-    lng: string;
-  };
-}) {
-  const { t } = useTranslation(params.lng, "common");
+type Params = Promise<{ lng: string }>;
+
+export default function Releases({ params }: { params: Params }) {
+  const { lng } = use(params);
+  const { t } = useTranslation(lng, "common");
 
   const [loading, setLoading] = useState<boolean>(true);
   const [releases, setReleases] = useState<Release[]>([]);
@@ -88,7 +85,7 @@ export default function Releases({
             {releases.map((release: Release, index: number) => (
               <ReleaseComp
                 key={release.id}
-                lng={params.lng}
+                lng={lng}
                 release={release}
                 first={index === 0}
               />
@@ -98,7 +95,7 @@ export default function Releases({
         <ShowContent isShow={!(releases.length < page * pageSize)}>
           <button
             onClick={() => setPage(page + 1)}
-            className="mx-auto flex items-center justify-center space-x-2 rounded-full border border-gray-300 bg-white px-5 py-2 text-sm text-gray-600 shadow-md transition-colors hover:enabled:border-gray-800 disabled:cursor-not-allowed dark:bg-black dark:text-white/80 max-md:mx-10"
+            className="mx-auto flex items-center justify-center space-x-2 rounded-full border border-gray-300 bg-white px-5 py-2 text-sm text-gray-600 shadow-md transition-colors hover:enabled:border-gray-800 disabled:cursor-not-allowed max-md:mx-10 dark:bg-black dark:text-white/80"
             disabled={loading}
             rel="noopener noreferrer"
           >

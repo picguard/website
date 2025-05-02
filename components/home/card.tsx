@@ -28,10 +28,10 @@ export default function Card({
       <div className="relative col-span-1 h-96 overflow-hidden rounded-xl border border-gray-200 hover:shadow-md dark:border-gray-700 dark:hover:shadow-gray-700">
         <div className="flex h-60 items-center justify-center">{demo}</div>
         <div className="mx-auto max-w-md text-center">
-          <h2 className="font-display bg-clip-text text-xl font-bold text-black/80 dark:text-white/80 md:text-3xl md:font-normal">
+          <h2 className="font-display bg-clip-text text-xl font-bold text-black/80 md:text-3xl md:font-normal dark:text-white/80">
             <Balancer>{title}</Balancer>
           </h2>
-          <div className="prose-sm -mt-2 leading-normal text-gray-500 md:prose dark:text-white/80">
+          <div className="prose-sm md:prose -mt-2 leading-normal text-gray-500 dark:text-white/80">
             <Balancer>
               <ReactMarkdown
                 components={{
@@ -46,6 +46,7 @@ export default function Card({
                   code: ({ node, ...props }) => (
                     <code
                       {...props}
+                      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                       // @ts-ignore (to fix "Received `true` for a non-boolean attribute `inline`." warning)
                       inline="true"
                       className="rounded-sm bg-gray-100 px-1 py-0.5 font-mono font-medium text-gray-800 dark:bg-gray-700"

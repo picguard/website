@@ -1,4 +1,4 @@
-const plugin = require("tailwindcss/plugin");
+import { type PluginAPI, default as plugin } from "tailwindcss/plugin";
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -123,7 +123,7 @@ module.exports = {
     require("tailwindcss-animate"),
     require("@tailwindcss/forms"),
     require("@tailwindcss/typography"),
-    plugin(({ addVariant }) => {
+    plugin(({ addVariant }: PluginAPI) => {
       addVariant("radix-side-top", '&[data-side="top"]');
       addVariant("radix-side-bottom", '&[data-side="bottom"]');
     }),

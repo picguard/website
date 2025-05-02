@@ -1,6 +1,7 @@
 import { Octokit } from "@octokit/rest";
 
 declare global {
+  // eslint-disable-next-line no-var
   var octokit: Octokit | undefined;
 }
 

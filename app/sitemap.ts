@@ -3,6 +3,8 @@ import { allPosts } from "contentlayer/generated";
 import { domain, sitemapUrls } from "@/constants";
 import { languages } from "@/i18n/settings";
 
+export const dynamic = "force-static";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   let sitemaps = allPosts
     .sort((a, b) => {

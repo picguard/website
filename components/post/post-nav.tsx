@@ -17,7 +17,7 @@ export default function PostNav(props: LngProps) {
 
   // populate the right sidebar
   useEffect(() => {
-    let linksArray: HTMLElement[] = [];
+    const linksArray: HTMLElement[] = [];
     targets.map((target) => {
       linksArray.push(target);
     });
@@ -28,7 +28,7 @@ export default function PostNav(props: LngProps) {
     <aside className="relative mr-20 hidden w-64 shrink-0 lg:block">
       {links.length > 0 && (
         <div className="sticky top-28">
-          <h4 className="mb-4 text-lg font-bold leading-snug tracking-tight dark:text-gray-200">
+          <h4 className="mb-4 text-lg leading-snug font-bold tracking-tight dark:text-gray-200">
             {t("table-of-contents")}
           </h4>
           <ul className="-my-1 font-medium">

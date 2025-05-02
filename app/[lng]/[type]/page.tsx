@@ -8,6 +8,8 @@ import { domain } from "@/constants";
 import { useTranslation } from "@/i18n";
 import { lngRegex } from "@/i18n/settings";
 
+type Params = Promise<{ lng: string; type: string }>;
+
 export async function generateStaticParams() {
   const urls = Array.from(
     new Set(allPosts.map((post) => post.slug.replaceAll(lngRegex, ""))),
@@ -21,10 +23,11 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({
-  params: { lng },
+  params,
 }: {
-  params: { lng: string };
+  params: Params;
 }): Promise<Metadata | undefined> {
+  const { lng } = await params;
   const { t } = await useTranslation(lng, "header"); // eslint-disable-line react-hooks/rules-of-hooks
   const { t: tc } = await useTranslation(lng, "common"); // eslint-disable-line react-hooks/rules-of-hooks
   return {
@@ -38,16 +41,13 @@ export async function generateMetadata({
   };
 }
 
-export default async function Blog({
-  params,
-}: {
-  params: { lng: string; type: string };
-}) {
-  if (!["blog", "legal"].includes(params.type)) return notFound();
+export default async function Blog({ params }: { params: Params }) {
+  const { lng, type } = await params;
+  if (!["blog", "legal"].includes(type)) return notFound();
 
   // Sort posts by date
   const posts = allPosts
-    .filter((post) => post.slug.startsWith(`${params.lng}/${params.type}`))
+    .filter((post) => post.slug.startsWith(`${lng}/${type}`))
     .sort((a, b) => {
       return new Date(a.publishedAt) > new Date(b.publishedAt) ? -1 : 1;
     });
@@ -69,13 +69,13 @@ export default async function Blog({
           {/* Articles container */}
           <div className="-mt-4 md:grow">
             {posts.map((post, postIndex) => (
-              <PostItem key={postIndex} {...post} lng={params.lng} />
+              <PostItem key={postIndex} {...post} lng={lng} />
             ))}
           </div>
 
           {/* Sidebar */}
           {posts.length && (
-            <aside className="relative mt-12 md:ml-12 md:mt-0 md:w-64 md:shrink-0 lg:ml-20">
+            <aside className="relative mt-12 md:mt-0 md:ml-12 md:w-64 md:shrink-0 lg:ml-20">
               <LatestPosts posts={posts.slice(0, 5)} />
               {/*<Topics />*/}
             </aside>

@@ -9,6 +9,8 @@ import PostNav from "@/components/post/post-nav";
 import { domain } from "@/constants";
 import { lngRegex } from "@/i18n/settings";
 
+type Params = Promise<{ slug: string; type: string; lng: string }>;
+
 export async function generateStaticParams() {
   const urls = Array.from(
     new Set(allPosts.map((post) => post.slug.replaceAll(lngRegex, ""))),
@@ -25,11 +27,10 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string; type: string; lng: string };
+  params: Params;
 }): Promise<Metadata | undefined> {
-  const post = allPosts.find(
-    (post) => post.slug === `${params.lng}/${params.type}/${params.slug}`,
-  );
+  const { lng, type, slug } = await params;
+  const post = allPosts.find((post) => post.slug === `${lng}/${type}/${slug}`);
 
   if (!post) return;
 
@@ -46,13 +47,9 @@ export async function generateMetadata({
   };
 }
 
-export default function Legal({
-  params,
-}: {
-  params: { slug: string; type: string; lng: string };
-}) {
-  const slug = `${params.lng}/${params.type}/${params.slug}`;
-  const post = allPosts.find((post) => post.slug === slug);
+export default async function Legal({ params }: { params: Params }) {
+  const { lng, type, slug } = await params;
+  const post = allPosts.find((post) => post.slug === `${lng}/${type}/${slug}`);
 
   if (!post) notFound();
 
@@ -69,7 +66,7 @@ export default function Legal({
           {/* Article content */}
           <div className="lg:flex lg:justify-between">
             {/* Sidebar */}
-            <PostNav lng={params.lng} />
+            <PostNav lng={lng} />
 
             {/* Main content */}
             <div className="flex-1">
@@ -120,7 +117,7 @@ export default function Legal({
                 <Mdx code={post.body.code} />
               </div>
 
-              {params.type === "blog" && (
+              {type === "blog" && (
                 <div className="text-lg text-gray-600">
                   <hr className="mt-8 h-px w-full border-0 bg-gray-200 pt-px dark:bg-gray-600" />
                   {/*<div className="mt-8 dark:text-gray-300">*/}
@@ -135,7 +132,7 @@ export default function Legal({
                   {/*</div>*/}
                   <div className="mt-6">
                     <Link
-                      href={`/${params.lng}/${params.type}`}
+                      href={`/${lng}/${type}`}
                       className="inline-flex items-center text-base font-medium text-[#3e8fc8] hover:underline"
                     >
                       <svg
