@@ -59,7 +59,7 @@ export default function Header(props: LngProps) {
                   <Tooltip>
                     <TooltipTrigger>
                       <Link
-                        href="https://www.picguard.app/play/"
+                        href="https://web.picguard.app"
                         className="flex h-8 w-8 items-center justify-center overflow-hidden rounded-full transition-all duration-75 focus:outline-none active:scale-95 sm:h-9 sm:w-9"
                       >
                         <LuExternalLink className="h-5 w-5" />
