@@ -1,20 +1,21 @@
 "use client";
-import React, { useState, useMemo } from "react";
+import React, { useState } from "react";
 import { MdOutlineDesktopMac } from "react-icons/md";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
+} from "@/components/shadcn/dropdown-menu";
+import {
   Drawer,
   DrawerContent,
   DrawerTrigger,
-  Button,
-} from "muse-ui";
+} from "@/components/shadcn/drawer";
+import { Button } from "@/components/shadcn/button";
 import { useAppTheme } from "@/lib/hooks";
 import { useTranslation } from "@/i18n/client";
 import { themes, icons } from "@/theme";
-import type { IconType } from "react-icons";
 import type { Theme, ThemeMode } from "@/theme";
 import type { LngProps } from "@/types/i18next-lng";
 
@@ -24,9 +25,7 @@ export default function ThemeDropdown(props: LngProps) {
   const [openPopover, setOpenPopover] = useState(false);
   const [openDrawer, setOpenDrawer] = useState(false);
 
-  const ThemeIcon: IconType = useMemo(() => {
-    return icons[theme as ThemeMode] || MdOutlineDesktopMac;
-  }, [theme]);
+  const ThemeIcon = icons[theme as ThemeMode] ?? MdOutlineDesktopMac;
 
   return (
     <div className="relative inline-block text-left">
@@ -51,7 +50,7 @@ export default function ThemeDropdown(props: LngProps) {
                   <Button
                     key={t1.mode}
                     onClick={() => setTheme(t1.mode)}
-                    className="relative flex w-full items-center justify-start space-x-2 rounded-md bg-background px-2 py-6 text-left text-sm text-inherit transition-all duration-75 hover:bg-accent hover:text-accent-foreground focus-visible:ring-0 focus-visible:ring-offset-0"
+                    className="bg-background hover:bg-accent hover:text-accent-foreground relative flex w-full items-center justify-start space-x-2 rounded-md px-2 py-6 text-left text-sm text-inherit transition-all duration-75 focus-visible:ring-0 focus-visible:ring-offset-0"
                   >
                     <t1.icon className="mr-0 h-4 w-4" />
                     <p className="text-sm">{t(`menus.${t1.mode}`)}</p>
@@ -72,14 +71,14 @@ export default function ThemeDropdown(props: LngProps) {
           </Button>
         </DrawerTrigger>
         <DrawerContent>
-          <div className="min-w-sm mx-auto w-full rounded-md p-2">
+          <div className="mx-auto w-full min-w-sm rounded-md p-2">
             {themes.map((t1: Theme) => {
               return (
                 <Button
                   key={t1.mode}
                   disabled={theme === t1.mode}
                   onClick={() => setTheme(t1.mode)}
-                  className="relative flex w-full items-center justify-start space-x-2 rounded-md bg-background px-2 py-3 text-left text-sm text-inherit transition-all duration-75 hover:bg-accent hover:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50"
+                  className="bg-background hover:bg-accent hover:text-accent-foreground relative flex w-full items-center justify-start space-x-2 rounded-md px-2 py-3 text-left text-sm text-inherit transition-all duration-75 data-[disabled]:pointer-events-none data-[disabled]:opacity-50"
                 >
                   <t1.icon className="mr-0 h-4 w-4" />
                   <p className="text-sm">{t(`menus.${t1.mode}`)}</p>

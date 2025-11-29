@@ -19,20 +19,18 @@ jobs:
     name: Create web
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
-          node-version: 18
+          node-version: 20
+          package-manager-cache: false
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 10.6.1
-          run_install: false
-
-      - name: Install dependencies
-        run: pnpm install
+      - name: Install Dependencies
+        run: |
+          npm i -g corepack
+          corepack enable
+          pnpm install
 
       - name: Build web
         run: pnpm build
@@ -51,7 +49,7 @@ jobs:
           cp LICENSE README.md ./out
           cp -R ./out/en/* ./out/
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v5
         with:
           name: web-artifact
           path: |

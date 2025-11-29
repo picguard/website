@@ -5,7 +5,7 @@ export const cacheThemeKey: string = "__picguard_theme__";
 
 export const domain =
   process.env.NODE_ENV === "production"
-    ? "https://www.picguard.app"
+    ? "https://picguard.app"
     : "http://localhost:3000";
 
 export const platformNames: SystemOSName = {

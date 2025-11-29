@@ -2,11 +2,7 @@ import { type PluginAPI, default as plugin } from "tailwindcss/plugin";
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "./app/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
-    "./node_modules/muse-ui/dist/**/*.{js,mjs}",
-  ],
+  content: ["./app/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
   future: {
     hoverOnlyWhenSupported: true,
   },
@@ -120,7 +116,6 @@ module.exports = {
   prefix: "",
   darkMode: "class",
   plugins: [
-    require("tailwindcss-animate"),
     require("@tailwindcss/forms"),
     require("@tailwindcss/typography"),
     plugin(({ addVariant }: PluginAPI) => {

@@ -6,11 +6,13 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
+} from "@/components/shadcn/dropdown-menu";
+import {
   Drawer,
   DrawerContent,
   DrawerTrigger,
-  Button,
-} from "muse-ui";
+} from "@/components/shadcn/drawer";
+import { Button } from "@/components/shadcn/button";
 import type { LngProps } from "@/types/i18next-lng";
 import type { Asset } from "@/types/github";
 

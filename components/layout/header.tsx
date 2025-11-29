@@ -7,7 +7,7 @@ import {
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "muse-ui";
+} from "@/components/shadcn/tooltip";
 import useScroll from "@/lib/hooks/use-scroll";
 import LngDropdown from "./lng-dropdown";
 import ThemeDropdown from "./theme-dropdown";
@@ -49,17 +49,17 @@ export default function Header(props: LngProps) {
           <p>{t("title")}</p>
         </Link>
         <div
-          className="w-18 hidden items-center justify-between max-md:absolute max-md:right-5 max-md:top-16 max-md:bg-white max-md:dark:bg-gray-900 md:order-1 md:flex md:w-auto"
+          className="hidden w-18 items-center justify-between max-md:absolute max-md:top-16 max-md:right-5 max-md:bg-white md:order-1 md:flex md:w-auto max-md:dark:bg-gray-900"
           id="navbar-language"
         >
-          <ul className="flex flex-col items-center rounded-lg border border-gray-100 p-4 font-medium dark:border-gray-700 max-md:space-y-3 md:mt-0 md:flex-row md:space-x-3 md:border-0 md:p-0">
+          <ul className="flex flex-col items-center rounded-lg border border-gray-100 p-4 font-medium max-md:space-y-3 md:mt-0 md:flex-row md:space-x-3 md:border-0 md:p-0 dark:border-gray-700">
             <li className="h-8 w-8 sm:h-9 sm:w-9">
               <div className="relative inline-block text-left">
                 <TooltipProvider>
                   <Tooltip>
                     <TooltipTrigger>
                       <Link
-                        href="https://www.picguard.app/play/"
+                        href="https://web.picguard.app"
                         className="flex h-8 w-8 items-center justify-center overflow-hidden rounded-full transition-all duration-75 focus:outline-none active:scale-95 sm:h-9 sm:w-9"
                       >
                         <LuExternalLink className="h-5 w-5" />
@@ -101,7 +101,7 @@ export default function Header(props: LngProps) {
         </div>
         <button
           onClick={toggleMenu}
-          className="inline-flex h-10 w-10 items-center justify-center rounded-lg p-2 text-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:hover:bg-gray-700 dark:focus:ring-gray-600 md:hidden"
+          className="inline-flex h-10 w-10 items-center justify-center rounded-lg p-2 text-sm hover:bg-gray-100 focus:ring-2 focus:ring-gray-200 focus:outline-none md:hidden dark:hover:bg-gray-700 dark:focus:ring-gray-600"
           aria-controls="navbar-language"
           aria-expanded="false"
         >

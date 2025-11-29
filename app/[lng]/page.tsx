@@ -262,9 +262,7 @@ export default function Home({ params }: { params: Params }) {
               rel="noopener noreferrer"
             >
               <RiDownload2Line className="h-6 w-6" />
-              <p>
-                <span className="sm:inline-block">{t("download")}</span>
-              </p>
+              <span className="sm:inline-block">{t("download")}</span>
             </Link>
           </div>
         </div>

@@ -2,7 +2,7 @@
 import React, { use, useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import Balancer from "react-wrap-balancer";
-import { ToggleGroup, ToggleGroupItem } from "muse-ui";
+import { ToggleGroup, ToggleGroupItem } from "@/components/shadcn/toggle-group";
 import BinariesCard from "@/components/download/binaries-card";
 import PkgCard from "@/components/download/pkg-card";
 import StoreCard from "@/components/download/store-card";

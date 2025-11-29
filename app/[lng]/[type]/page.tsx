@@ -26,7 +26,7 @@ export async function generateMetadata({
   params,
 }: {
   params: Params;
-}): Promise<Metadata | undefined> {
+}): Promise<Metadata> {
   const { lng } = await params;
   const { t } = await useTranslation(lng, "header"); // eslint-disable-line react-hooks/rules-of-hooks
   const { t: tc } = await useTranslation(lng, "common"); // eslint-disable-line react-hooks/rules-of-hooks

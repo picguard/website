@@ -1,4 +1,4 @@
-import "./globals.css";
+import "@/styles/globals.css";
 import React from "react";
 import cx from "classnames";
 import { dir } from "i18next";
@@ -7,7 +7,7 @@ import dynamic from "next/dynamic";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { BiArrowToTop } from "react-icons/bi";
 import NextTopLoader from "nextjs-toploader";
-import { Toaster } from "muse-ui";
+import { Toaster } from "@/components/shadcn/sonner";
 import CookieYes from "@/components/shared/cookie-yes";
 import ScrollToTop from "@/components/layout/scroll-to-top";
 import { languages } from "@/i18n/settings";
@@ -29,11 +29,14 @@ const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GOOGLE_ID;
 
 const Header = dynamic(() => import("@/components/layout/header"));
 
+type Params = Promise<{ lng: string }>;
+
 export async function generateMetadata({
-  params: { lng },
+  params,
 }: {
-  params: { lng: string };
-}): Promise<Metadata | undefined> {
+  params: Params;
+}): Promise<Metadata> {
+  const { lng } = await params;
   const { t } = await useTranslation(lng, "header"); // eslint-disable-line react-hooks/rules-of-hooks
   const { t: tc } = await useTranslation(lng, "common"); // eslint-disable-line react-hooks/rules-of-hooks
   return {
@@ -56,14 +59,14 @@ export default async function RootLayout({
   params,
 }: {
   children: React.ReactNode;
-  params: {
-    lng: string;
-  };
+  params: Params;
 }) {
+  const { lng } = await params;
+
   return (
     <html
-      lang={params.lng}
-      dir={dir(params.lng)}
+      lang={lng}
+      dir={dir(lng)}
       className={NEXT_PUBLIC_WEBSITE_GLOBAL_GRAY ? "grayscale" : ""}
       suppressHydrationWarning
     >
@@ -78,14 +81,14 @@ export default async function RootLayout({
           <NextTopLoader height={1} />
           <ThemeProvider>
             {NEXT_PUBLIC_SHOW_PARTICLES && <Particles />}
-            <Header lng={params.lng} />
+            <Header lng={lng} />
             <main
               id="main"
               className="flex w-full flex-1 flex-col items-center justify-center pt-32"
             >
               {children}
             </main>
-            <Footer lng={params.lng} />
+            <Footer lng={lng} />
             <Toaster />
           </ThemeProvider>
           <ScrollToTop
@@ -96,7 +99,7 @@ export default async function RootLayout({
           />
         </CookiesProvider>
       </body>
-      <CookieYes lng={params.lng} />
+      <CookieYes lng={lng} />
       {GA_TRACKING_ID && <GoogleAnalytics gaId={GA_TRACKING_ID} />}
     </html>
   );

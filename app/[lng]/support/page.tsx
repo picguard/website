@@ -3,7 +3,7 @@ import { use, useCallback } from "react";
 import Balancer from "react-wrap-balancer";
 import { RoughNotation } from "react-rough-notation";
 import { MdEmail } from "react-icons/md";
-import { IssueOpenedIcon, CommentDiscussionIcon } from "@primer/octicons-react";
+import { IssueOpenedIcon } from "@primer/octicons-react";
 import Card from "@/components/home/card";
 import { useTranslation } from "@/i18n/client";
 
@@ -76,7 +76,7 @@ const apps = [
     demo: (
       <MdEmail className="h-24 w-24 text-gray-600 transition-all dark:text-white/80" />
     ),
-    url: "mailto:picguard-support@insco.io",
+    url: "mailto:support@picguard.app",
     large: false,
   },
   {
@@ -87,15 +87,5 @@ const apps = [
       <IssueOpenedIcon className="h-24 w-24 text-gray-600 transition-all dark:text-white/80" />
     ),
     url: "https://github.com/picguard/picguard/issues",
-  },
-  {
-    title: "GitHub Discussions",
-    description:
-      "We're using `GitHub Discussions` as a place to connect with other members of our community.",
-    demo: (
-      <CommentDiscussionIcon className="h-24 w-24 text-gray-600 transition-all dark:text-white/80" />
-    ),
-    url: "https://github.com/picguard/picguard/discussions",
-    large: false,
   },
 ];
