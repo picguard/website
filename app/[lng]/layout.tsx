@@ -12,7 +12,7 @@ import CookieYes from "@/components/shared/cookie-yes";
 import ScrollToTop from "@/components/layout/scroll-to-top";
 import { languages } from "@/i18n/settings";
 import Footer from "@/components/layout/footer";
-import { domain } from "@/constants";
+import { basePath, domain } from "@/constants";
 import { useTranslation } from "@/i18n";
 import { sfPro, inter } from "./fonts";
 import Particles from "./particles";
@@ -43,9 +43,9 @@ export async function generateMetadata({
     description: `${t("title")} - ${tc("slogan")}`,
     metadataBase: new URL(domain),
     icons: {
-      icon: `${domain}/logo.png`,
+      icon: `${basePath}/logo.png`,
     },
-    manifest: `${domain}/manifest.json`,
+    manifest: `${basePath}/manifest.json`,
   };
 }
 

@@ -4,8 +4,7 @@ import ReleaseComp from "@/components/home/release";
 import { Loading } from "@/components/shared/icons";
 import { useTranslation } from "@/i18n/client";
 import { pageSize } from "@/constants";
-import github from "@/lib/github";
-
+import { getReleases } from "@/request";
 import type { Release } from "@/types/github";
 
 export default function Releases({
@@ -20,24 +19,19 @@ export default function Releases({
   const [loading, setLoading] = useState<boolean>(true);
   const [releases, setReleases] = useState<Release[]>([]);
   const [page, setPage] = useState<number>(1);
-  const [error, setError] = useState<boolean>();
+  const [error, setError] = useState<boolean>(false);
 
   const fetchData = async (page: number) => {
     try {
       setLoading(true);
-      const res = await github.repos.listReleases({
-        owner: process.env.GH_REPO_OWNER,
-        repo: process.env.GH_REPO,
-        page,
-        per_page: pageSize,
-      });
+      const res = await getReleases(page);
       setLoading(false);
-      if (res?.status === 200) {
+      if (res?.code === 0) {
         setReleases(releases.concat(res?.data || []));
         return;
       }
       setError(true);
-      console.log(res?.status);
+      console.error(res?.msg);
     } catch (error) {
       setLoading(false);
       setError(true);

@@ -1,4 +1,5 @@
 "use client";
+
 import { useEffect, useState } from "react";
 import i18next, { FlatNamespace, KeyPrefix } from "i18next";
 import {
@@ -8,7 +9,6 @@ import {
   UseTranslationResponse,
   FallbackNs,
 } from "react-i18next";
-import { useCookies } from "react-cookie";
 import resourcesToBackend from "i18next-resources-to-backend";
 // import LocizeBackend from 'i18next-locize-backend'
 import LanguageDetector from "i18next-browser-languagedetector";
@@ -32,13 +32,7 @@ i18next
     ...getOptions(),
     lng: undefined, // let detect the language on client side
     detection: {
-      // https://github.com/i18next/i18next-browser-languageDetector
       order: ["path", "htmlTag", "cookie", "navigator"],
-      // keys or params to lookup language from
-      lookupQuerystring: "lng",
-      lookupCookie: cacheLngKey,
-      // lookupLocalStorage: cacheLngKey,
-      // lookupSessionStorage: cacheLngKey,
     },
     preload: runsOnServerSide ? languages : [],
   });
@@ -51,7 +45,6 @@ export function useTranslation<
   ns?: Ns,
   options?: UseTranslationOptions<KPrefix>,
 ): UseTranslationResponse<FallbackNs<Ns>, KPrefix> {
-  const [cookies, setCookie] = useCookies([cacheLngKey]);
   const ret = useTranslationOrg(ns, options);
   const { i18n } = ret;
   if (runsOnServerSide && lng && i18n.resolvedLanguage !== lng) {
@@ -69,12 +62,6 @@ export function useTranslation<
       if (!lng || i18n.resolvedLanguage === lng) return;
       i18n.changeLanguage(lng);
     }, [lng, i18n]);
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    useEffect(() => {
-      if (cookies[cacheLngKey] === lng) return;
-      setCookie(cacheLngKey, lng, { path: "/" });
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [lng, cookies.__picguard_lng__]);
   }
   return ret;
 }
