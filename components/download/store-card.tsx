@@ -210,6 +210,18 @@ export default function StoreCard({
                 decoding="async"
               />
             </Link>
+            <span className="mb-2 mt-4 text-gray-600 dark:text-white/80">
+              Pro version
+            </span>
+            <Link target="_blank" href="https://snapcraft.io/picguard-pro">
+              <img
+                width="220"
+                alt="Get it on Snap Store"
+                src="/images/Download-on-the-Snap-Store.svg"
+                loading="lazy"
+                decoding="async"
+              />
+            </Link>
           </div>
           <span className="mt-6 text-gray-600 dark:text-white/80">FlatHub</span>
           <div className="mb-2 mt-2 flex flex-col px-2">
@@ -219,6 +231,21 @@ export default function StoreCard({
             <Link
               target="_blank"
               href="https://flathub.org/apps/details/com.kjxbyz.PicGuard"
+            >
+              <img
+                width="220"
+                alt="Get it on Flathub"
+                src="https://flathub.org/assets/badges/flathub-badge-en.png"
+                loading="lazy"
+                decoding="async"
+              />
+            </Link>
+            <span className="mb-2 mt-4 text-gray-600 dark:text-white/80">
+              Pro version
+            </span>
+            <Link
+              target="_blank"
+              href="https://flathub.org/apps/details/com.kjxbyz.PicGuardPro"
             >
               <img
                 width="220"

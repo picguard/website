@@ -12,6 +12,244 @@ export default function BinariesCard({
 }: LngProps & { platform: SystemOS; assets: Asset[] }) {
   const { t } = useTranslation(lng, "download");
 
+  const windowsBinariesCard = useMemo(() => {
+    const freeVer = assets.filter(
+      (value: Asset) => !value.name?.includes("pro"),
+    );
+    const x64FreeVer = freeVer.filter((value: Asset) =>
+      value.name?.includes("x64"),
+    );
+    const arm64FreeVer = freeVer.filter((value: Asset) =>
+      value.name?.includes("arm64"),
+    );
+
+    const proVer = assets.filter((value: Asset) => value.name?.includes("pro"));
+    const x64ProVer = proVer.filter((value: Asset) =>
+      value.name?.includes("x64"),
+    );
+    const arm64ProVer = proVer.filter((value: Asset) =>
+      value.name?.includes("arm64"),
+    );
+
+    return (
+      <>
+        <span className="mb-2 mt-2 text-gray-600 dark:text-white/80">
+          Free version
+        </span>
+        <div className="mb-2 mt-2 flex flex-col px-2">
+          <span className="mb-2 text-gray-600 dark:text-white/80">x64</span>
+          <ul>
+            {x64FreeVer.map((value: Asset) => {
+              return (
+                <li
+                  key={value.id}
+                  className="w-fit rounded-sm px-2 py-1.5 hover:bg-gray-200 dark:hover:bg-gray-400"
+                >
+                  <Link
+                    className="text-gray-600 dark:text-white/80"
+                    href={value.browser_download_url || ""}
+                  >
+                    {value.name}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+          {arm64FreeVer.length > 0 && (
+            <>
+              <span className="mb-2 mt-2 text-gray-600 dark:text-white/80">
+                Arm64
+              </span>
+              <ul>
+                {arm64FreeVer.map((value: Asset) => {
+                  return (
+                    <li
+                      key={value.id}
+                      className="w-fit rounded-sm px-2 py-1.5 hover:bg-gray-200 dark:hover:bg-gray-400"
+                    >
+                      <Link
+                        className="text-gray-600 dark:text-white/80"
+                        href={value.browser_download_url || ""}
+                      >
+                        {value.name}
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
+            </>
+          )}
+        </div>
+        <span className="mb-2 mt-2 text-gray-600 dark:text-white/80">
+          Pro version
+        </span>
+        <div className="mb-2 mt-2 flex flex-col px-2">
+          <span className="mb-2 text-gray-600 dark:text-white/80">x64</span>
+          <ul>
+            {x64ProVer.map((value: Asset) => {
+              return (
+                <li
+                  key={value.id}
+                  className="w-fit rounded-sm px-2 py-1.5 hover:bg-gray-200 dark:hover:bg-gray-400"
+                >
+                  <Link
+                    className="text-gray-600 dark:text-white/80"
+                    href={value.browser_download_url || ""}
+                  >
+                    {value.name}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+          {arm64ProVer.length > 0 && (
+            <>
+              <span className="mb-2 mt-2 text-gray-600 dark:text-white/80">
+                Arm64
+              </span>
+              <ul>
+                {arm64ProVer.map((value: Asset) => {
+                  return (
+                    <li
+                      key={value.id}
+                      className="w-fit rounded-sm px-2 py-1.5 hover:bg-gray-200 dark:hover:bg-gray-400"
+                    >
+                      <Link
+                        className="text-gray-600 dark:text-white/80"
+                        href={value.browser_download_url || ""}
+                      >
+                        {value.name}
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
+            </>
+          )}
+        </div>
+      </>
+    );
+  }, [assets]);
+
+  const linuxBinariesCard = useMemo(() => {
+    const freeVer = assets.filter(
+      (value: Asset) => !value.name?.includes("pro"),
+    );
+    const x64FreeVer = freeVer.filter((value: Asset) =>
+      value.name?.includes("amd64"),
+    );
+    const arm64FreeVer = freeVer.filter((value: Asset) =>
+      value.name?.includes("aarch64"),
+    );
+
+    const proVer = assets.filter((value: Asset) => value.name?.includes("pro"));
+    const x64ProVer = proVer.filter((value: Asset) =>
+      value.name?.includes("amd64"),
+    );
+    const arm64ProVer = proVer.filter((value: Asset) =>
+      value.name?.includes("aarch64"),
+    );
+
+    return (
+      <>
+        <span className="mb-2 mt-2 text-gray-600 dark:text-white/80">
+          Free version
+        </span>
+        <div className="mb-2 mt-2 flex flex-col px-2">
+          <span className="mb-2 text-gray-600 dark:text-white/80">x64</span>
+          <ul>
+            {x64FreeVer.map((value: Asset) => {
+              return (
+                <li
+                  key={value.id}
+                  className="w-fit rounded-sm px-2 py-1.5 hover:bg-gray-200 dark:hover:bg-gray-400"
+                >
+                  <Link
+                    className="text-gray-600 dark:text-white/80"
+                    href={value.browser_download_url || ""}
+                  >
+                    {value.name}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+          {arm64FreeVer.length > 0 && (
+            <>
+              <span className="mb-2 mt-2 text-gray-600 dark:text-white/80">
+                Arm64
+              </span>
+              <ul>
+                {arm64FreeVer.map((value: Asset) => {
+                  return (
+                    <li
+                      key={value.id}
+                      className="w-fit rounded-sm px-2 py-1.5 hover:bg-gray-200 dark:hover:bg-gray-400"
+                    >
+                      <Link
+                        className="text-gray-600 dark:text-white/80"
+                        href={value.browser_download_url || ""}
+                      >
+                        {value.name}
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
+            </>
+          )}
+        </div>
+        <span className="mb-2 mt-2 text-gray-600 dark:text-white/80">
+          Pro version
+        </span>
+        <div className="mb-2 mt-2 flex flex-col px-2">
+          <span className="mb-2 text-gray-600 dark:text-white/80">x64</span>
+          <ul>
+            {x64ProVer.map((value: Asset) => {
+              return (
+                <li
+                  key={value.id}
+                  className="w-fit rounded-sm px-2 py-1.5 hover:bg-gray-200 dark:hover:bg-gray-400"
+                >
+                  <Link
+                    className="text-gray-600 dark:text-white/80"
+                    href={value.browser_download_url || ""}
+                  >
+                    {value.name}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+          {arm64ProVer.length > 0 && (
+            <>
+              <span className="mb-2 mt-2 text-gray-600 dark:text-white/80">
+                Arm64
+              </span>
+              <ul>
+                {arm64ProVer.map((value: Asset) => {
+                  return (
+                    <li
+                      key={value.id}
+                      className="w-fit rounded-sm px-2 py-1.5 hover:bg-gray-200 dark:hover:bg-gray-400"
+                    >
+                      <Link
+                        className="text-gray-600 dark:text-white/80"
+                        href={value.browser_download_url || ""}
+                      >
+                        {value.name}
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
+            </>
+          )}
+        </div>
+      </>
+    );
+  }, [assets]);
+
   const binaryLinks = useMemo(() => {
     const links: Record<SystemOS, React.ReactNode> = {
       ios: (
@@ -21,7 +259,7 @@ export default function BinariesCard({
           </span>
           <ul>
             {assets
-              .filter((value: Asset) => value.name?.includes("free"))
+              .filter((value: Asset) => !value.name?.includes("Pro"))
               .map((value: Asset) => {
                 return (
                   <li
@@ -43,7 +281,7 @@ export default function BinariesCard({
           </span>
           <ul>
             {assets
-              .filter((value: Asset) => value.name?.includes("pro"))
+              .filter((value: Asset) => value.name?.includes("Pro"))
               .map((value: Asset) => {
                 return (
                   <li
@@ -69,7 +307,7 @@ export default function BinariesCard({
           </span>
           <ul>
             {assets
-              .filter((value: Asset) => value.name?.includes("free"))
+              .filter((value: Asset) => !value.name?.includes("Pro"))
               .map((value: Asset) => {
                 return (
                   <li
@@ -91,7 +329,7 @@ export default function BinariesCard({
           </span>
           <ul>
             {assets
-              .filter((value: Asset) => value.name?.includes("pro"))
+              .filter((value: Asset) => value.name?.includes("Pro"))
               .map((value: Asset) => {
                 return (
                   <li
@@ -116,108 +354,54 @@ export default function BinariesCard({
             Free version
           </span>
           <ul>
-            {assets.map((value: Asset) => {
-              return (
-                <li
-                  key={value.id}
-                  className="w-fit rounded-sm px-2 py-1.5 hover:bg-gray-200 dark:hover:bg-gray-400"
-                >
-                  <Link
-                    className="text-gray-600 dark:text-white/80"
-                    href={value.browser_download_url || ""}
+            {assets
+              .filter((value: Asset) => !value.name?.includes("Pro"))
+              .map((value: Asset) => {
+                return (
+                  <li
+                    key={value.id}
+                    className="w-fit rounded-sm px-2 py-1.5 hover:bg-gray-200 dark:hover:bg-gray-400"
                   >
-                    {value.name}
-                  </Link>
-                </li>
-              );
-            })}
+                    <Link
+                      className="text-gray-600 dark:text-white/80"
+                      href={value.browser_download_url || ""}
+                    >
+                      {value.name}
+                    </Link>
+                  </li>
+                );
+              })}
+          </ul>
+          <span className="mb-2 mt-2 text-gray-600 dark:text-white/80">
+            Pro version
+          </span>
+          <ul>
+            {assets
+              .filter((value: Asset) => value.name?.includes("Pro"))
+              .map((value: Asset) => {
+                return (
+                  <li
+                    key={value.id}
+                    className="w-fit rounded-sm px-2 py-1.5 hover:bg-gray-200 dark:hover:bg-gray-400"
+                  >
+                    <Link
+                      className="text-gray-600 dark:text-white/80"
+                      href={value.browser_download_url || ""}
+                    >
+                      {value.name}
+                    </Link>
+                  </li>
+                );
+              })}
           </ul>
         </>
       ),
-      windows: (
-        <>
-          <span className="mb-2 mt-2 text-gray-600 dark:text-white/80">
-            Free version
-          </span>
-          <div className="mb-2 mt-2 flex flex-col px-2">
-            <span className="mb-2 text-gray-600 dark:text-white/80">x64</span>
-            <ul>
-              {assets
-                .filter((value: Asset) => value.name?.includes("x64"))
-                .map((value: Asset) => {
-                  return (
-                    <li
-                      key={value.id}
-                      className="w-fit rounded-sm px-2 py-1.5 hover:bg-gray-200 dark:hover:bg-gray-400"
-                    >
-                      <Link
-                        className="text-gray-600 dark:text-white/80"
-                        href={value.browser_download_url || ""}
-                      >
-                        {value.name}
-                      </Link>
-                    </li>
-                  );
-                })}
-            </ul>
-          </div>
-        </>
-      ),
-      linux: (
-        <>
-          <span className="mb-2 mt-2 text-gray-600 dark:text-white/80">
-            Free version
-          </span>
-          <div className="mb-2 mt-2 flex flex-col px-2">
-            <span className="mb-2 text-gray-600 dark:text-white/80">x64</span>
-            <ul>
-              {assets
-                .filter((value: Asset) => value.name?.includes("amd64"))
-                .map((value: Asset) => {
-                  return (
-                    <li
-                      key={value.id}
-                      className="w-fit rounded-sm px-2 py-1.5 hover:bg-gray-200 dark:hover:bg-gray-400"
-                    >
-                      <Link
-                        className="text-gray-600 dark:text-white/80"
-                        href={value.browser_download_url || ""}
-                      >
-                        {value.name}
-                      </Link>
-                    </li>
-                  );
-                })}
-            </ul>
-          </div>
-          <div className="mb-2 mt-2 flex flex-col px-2">
-            <span className="mb-2 text-gray-600 dark:text-white/80">arm64</span>
-            <ul>
-              {assets
-                .filter((value: Asset) => value.name?.includes("aarch64"))
-                .map((value: Asset) => {
-                  return (
-                    <li
-                      key={value.id}
-                      className="w-fit rounded-sm px-2 py-1.5 hover:bg-gray-200 dark:hover:bg-gray-400"
-                    >
-                      <Link
-                        className="text-gray-600 dark:text-white/80"
-                        href={value.browser_download_url || ""}
-                      >
-                        {value.name}
-                      </Link>
-                    </li>
-                  );
-                })}
-            </ul>
-          </div>
-        </>
-      ),
+      windows: windowsBinariesCard,
+      linux: linuxBinariesCard,
     };
 
     return links;
-  }, [assets]);
+  }, [assets, windowsBinariesCard, linuxBinariesCard]);
 
   return (
     <div className="flex min-h-64 w-full max-w-screen-xl animate-fade-up flex-col rounded-xl border border-gray-200 p-4 hover:shadow-md dark:border-gray-700 dark:hover:shadow-gray-700">

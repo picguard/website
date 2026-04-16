@@ -22,8 +22,21 @@ export default function PkgCard({
             Homebrew
           </span>
           <div className="mb-2 mt-2 flex flex-col px-2">
+            <span className="mb-2 text-gray-600 dark:text-white/80">
+              Free version
+            </span>
             <CopyBlock
-              text="brew install kjxbyz/casks/picguard"
+              text={`brew tap qiazo/casks\nbrew install picguard`}
+              language="bash"
+              theme={{ mode: theme as any }}
+              showLineNumbers
+              codeBlock
+            />
+            <span className="mb-2 mt-4 text-gray-600 dark:text-white/80">
+              Pro version
+            </span>
+            <CopyBlock
+              text={`brew tap qiazo/casks\nbrew install picguard-pro`}
               language="bash"
               theme={{ mode: theme as any }}
               showLineNumbers
@@ -48,8 +61,21 @@ export default function PkgCard({
         <>
           <span className="mt-4 text-gray-600 dark:text-white/80">WinGet</span>
           <div className="mb-2 mt-2 flex flex-col px-2">
+            <span className="mb-2 text-gray-600 dark:text-white/80">
+              Free version
+            </span>
             <CopyBlock
               text="winget install --id Insco.PicGuard"
+              language="bash"
+              theme={{ mode: theme as any }}
+              showLineNumbers
+              codeBlock
+            />
+            <span className="mb-2 mt-4 text-gray-600 dark:text-white/80">
+              Pro version
+            </span>
+            <CopyBlock
+              text="winget install --id Insco.PicGuard.Pro"
               language="bash"
               theme={{ mode: theme as any }}
               showLineNumbers
@@ -60,8 +86,21 @@ export default function PkgCard({
             Chocolatey
           </span>
           <div className="mb-2 mt-2 flex flex-col px-2">
+            <span className="mb-2 text-gray-600 dark:text-white/80">
+              Free version
+            </span>
             <CopyBlock
               text="choco install picguard"
+              language="bash"
+              theme={{ mode: theme as any }}
+              showLineNumbers
+              codeBlock
+            />
+            <span className="mb-2 mt-4 text-gray-600 dark:text-white/80">
+              Pro version
+            </span>
+            <CopyBlock
+              text="choco install picguard-pro"
               language="bash"
               theme={{ mode: theme as any }}
               showLineNumbers
@@ -70,8 +109,21 @@ export default function PkgCard({
           </div>
           <span className="mt-6 text-gray-600 dark:text-white/80">Scoop</span>
           <div className="mb-2 mt-2 flex flex-col px-2">
+            <span className="mb-2 text-gray-600 dark:text-white/80">
+              Free version
+            </span>
             <CopyBlock
-              text={`scoop bucket add kjxbyz_scoop-bucket https://github.com/kjxbyz/scoop-bucket\nscoop install kjxbyz_scoop-bucket/picguard`}
+              text={`scoop bucket add qiazo_scoop-bucket https://github.com/qiazo/scoop-bucket\nscoop install qiazo_scoop-bucket/picguard`}
+              language="bash"
+              theme={{ mode: theme as any }}
+              showLineNumbers
+              codeBlock
+            />
+            <span className="mb-2 mt-4 text-gray-600 dark:text-white/80">
+              Pro version
+            </span>
+            <CopyBlock
+              text={`scoop bucket add qiazo_scoop-bucket https://github.com/qiazo/scoop-bucket\nscoop install qiazo_scoop-bucket/picguard-pro`}
               language="bash"
               theme={{ mode: theme as any }}
               showLineNumbers
@@ -84,8 +136,21 @@ export default function PkgCard({
         <>
           <span className="mt-4 text-gray-600 dark:text-white/80">Flatpak</span>
           <div className="mb-2 mt-2 flex flex-col px-2">
+            <span className="mb-2 text-gray-600 dark:text-white/80">
+              Free version
+            </span>
             <CopyBlock
               text="flatpak install com.kjxbyz.PicGuard"
+              language="bash"
+              theme={{ mode: theme as any }}
+              showLineNumbers
+              codeBlock
+            />
+            <span className="mb-2 mt-4 text-gray-600 dark:text-white/80">
+              Pro version
+            </span>
+            <CopyBlock
+              text="flatpak install com.kjxbyz.PicGuardPro"
               language="bash"
               theme={{ mode: theme as any }}
               showLineNumbers
@@ -94,8 +159,21 @@ export default function PkgCard({
           </div>
           <span className="mt-6 text-gray-600 dark:text-white/80">Snap</span>
           <div className="mb-2 mt-2 flex flex-col px-2">
+            <span className="mb-2 text-gray-600 dark:text-white/80">
+              Free version
+            </span>
             <CopyBlock
               text="sudo snap install picguard"
+              language="bash"
+              theme={{ mode: theme as any }}
+              showLineNumbers
+              codeBlock
+            />
+            <span className="mb-2 mt-4 text-gray-600 dark:text-white/80">
+              Pro version
+            </span>
+            <CopyBlock
+              text="sudo snap install picguard-pro"
               language="bash"
               theme={{ mode: theme as any }}
               showLineNumbers
@@ -121,23 +199,53 @@ export default function PkgCard({
             <span className="mb-2 text-gray-600 dark:text-white/80">
               With pacman
             </span>
-            <CopyBlock
-              text="sudo pacman -S picguard-bin"
-              language="bash"
-              theme={{ mode: theme as any }}
-              showLineNumbers
-              codeBlock
-            />
+            <div className="mb-2 mt-2 flex flex-col px-2">
+              <span className="mb-2 text-gray-600 dark:text-white/80">
+                Free version
+              </span>
+              <CopyBlock
+                text="sudo pacman -S picguard-bin"
+                language="bash"
+                theme={{ mode: theme as any }}
+                showLineNumbers
+                codeBlock
+              />
+              <span className="mb-2 mt-4 text-gray-600 dark:text-white/80">
+                Pro version
+              </span>
+              <CopyBlock
+                text="sudo pacman -S picguard-pro-bin"
+                language="bash"
+                theme={{ mode: theme as any }}
+                showLineNumbers
+                codeBlock
+              />
+            </div>
             <span className="mb-2 mt-4 text-gray-600 dark:text-white/80">
               With yay
             </span>
-            <CopyBlock
-              text="yay -Sy picguard-bin"
-              language="bash"
-              theme={{ mode: theme as any }}
-              showLineNumbers
-              codeBlock
-            />
+            <div className="mb-2 mt-2 flex flex-col px-2">
+              <span className="mb-2 text-gray-600 dark:text-white/80">
+                Free version
+              </span>
+              <CopyBlock
+                text="yay -Sy picguard-bin"
+                language="bash"
+                theme={{ mode: theme as any }}
+                showLineNumbers
+                codeBlock
+              />
+              <span className="mb-2 mt-4 text-gray-600 dark:text-white/80">
+                Pro version
+              </span>
+              <CopyBlock
+                text="yay -Sy picguard-pro-bin"
+                language="bash"
+                theme={{ mode: theme as any }}
+                showLineNumbers
+                codeBlock
+              />
+            </div>
           </div>
         </>
       ),
