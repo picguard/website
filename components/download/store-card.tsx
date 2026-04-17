@@ -15,7 +15,7 @@ export default function StoreCard({
       ios: (
         <>
           <span className="mb-2 mt-2 text-gray-600 dark:text-white/80">
-            Free version
+            {t("free-version")}
           </span>
           <Link target="_blank" href="https://apps.apple.com/app/id6737562561">
             <img
@@ -27,7 +27,7 @@ export default function StoreCard({
             />
           </Link>
           <span className="mb-2 mt-4 text-gray-600 dark:text-white/80">
-            Pro version
+            {t("pro-version")}
           </span>
           <Link target="_blank" href="https://apps.apple.com/app/id6737562597">
             <img
@@ -47,7 +47,7 @@ export default function StoreCard({
           </span>
           <div className="mb-2 mt-2 flex flex-col px-2">
             <span className="mb-2 text-gray-600 dark:text-white/80">
-              Free version
+              {t("free-version")}
             </span>
             <Link
               target="_blank"
@@ -62,7 +62,7 @@ export default function StoreCard({
               />
             </Link>
             <span className="mb-2 mt-4 text-gray-600 dark:text-white/80">
-              Pro version
+              {t("pro-version")}
             </span>
             <Link
               target="_blank"
@@ -80,7 +80,7 @@ export default function StoreCard({
           <span className="mt-6 text-gray-600 dark:text-white/80">Amazon</span>
           <div className="mb-2 mt-2 flex flex-col px-2">
             <span className="mb-2 text-gray-600 dark:text-white/80">
-              Free version
+              {t("free-version")}
             </span>
             <Link target="_blank" href="https://www.amazon.com/dp/B0DLT8N89V">
               <img
@@ -92,7 +92,7 @@ export default function StoreCard({
               />
             </Link>
             <span className="mb-2 mt-4 text-gray-600 dark:text-white/80">
-              Pro version
+              {t("pro-version")}
             </span>
             <Link target="_blank" href="https://www.amazon.com/dp/B0DLT7DGBV">
               <img
@@ -107,7 +107,7 @@ export default function StoreCard({
           <span className="mt-6 text-gray-600 dark:text-white/80">F-Droid</span>
           <div className="mb-2 mt-2 flex flex-col px-2">
             <span className="mb-2 text-gray-600 dark:text-white/80">
-              Free version
+              {t("free-version")}
             </span>
             <Link
               target="_blank"
@@ -127,7 +127,7 @@ export default function StoreCard({
       macos: (
         <>
           <span className="mb-2 mt-2 text-gray-600 dark:text-white/80">
-            Free version
+            {t("free-version")}
           </span>
           <Link
             target="_blank"
@@ -142,7 +142,7 @@ export default function StoreCard({
             />
           </Link>
           <span className="mb-2 mt-4 text-gray-600 dark:text-white/80">
-            Pro version
+            {t("pro-version")}
           </span>
           <Link
             target="_blank"
@@ -161,7 +161,7 @@ export default function StoreCard({
       windows: (
         <>
           <span className="mb-2 mt-2 text-gray-600 dark:text-white/80">
-            Free version
+            {t("free-version")}
           </span>
           <Link
             target="_blank"
@@ -176,7 +176,7 @@ export default function StoreCard({
             />
           </Link>
           <span className="mb-2 mt-4 text-gray-600 dark:text-white/80">
-            Pro version
+            {t("pro-version")}
           </span>
           <Link
             target="_blank"
@@ -199,7 +199,7 @@ export default function StoreCard({
           </span>
           <div className="mb-2 mt-2 flex flex-col px-2">
             <span className="mb-2 text-gray-600 dark:text-white/80">
-              Free version
+              {t("free-version")}
             </span>
             <Link target="_blank" href="https://snapcraft.io/picguard">
               <img
@@ -211,7 +211,7 @@ export default function StoreCard({
               />
             </Link>
             <span className="mb-2 mt-4 text-gray-600 dark:text-white/80">
-              Pro version
+              {t("pro-version")}
             </span>
             <Link target="_blank" href="https://snapcraft.io/picguard-pro">
               <img
@@ -226,7 +226,7 @@ export default function StoreCard({
           <span className="mt-6 text-gray-600 dark:text-white/80">FlatHub</span>
           <div className="mb-2 mt-2 flex flex-col px-2">
             <span className="mb-2 text-gray-600 dark:text-white/80">
-              Free version
+              {t("free-version")}
             </span>
             <Link
               target="_blank"
@@ -241,7 +241,7 @@ export default function StoreCard({
               />
             </Link>
             <span className="mb-2 mt-4 text-gray-600 dark:text-white/80">
-              Pro version
+              {t("pro-version")}
             </span>
             <Link
               target="_blank"
@@ -261,7 +261,7 @@ export default function StoreCard({
     };
 
     return links;
-  }, []);
+  }, [t]);
 
   return storeLinks[platform] ? (
     <div className="flex min-h-64 w-full max-w-screen-xl animate-fade-up flex-col rounded-xl border border-gray-200 p-4 hover:shadow-md dark:border-gray-700 dark:hover:shadow-gray-700">

@@ -23,7 +23,7 @@ export default function PkgCard({
           </span>
           <div className="mb-2 mt-2 flex flex-col px-2">
             <span className="mb-2 text-gray-600 dark:text-white/80">
-              Free version
+              {t("free-version")}
             </span>
             <CopyBlock
               text={`brew tap qiazo/casks\nbrew install picguard`}
@@ -33,7 +33,7 @@ export default function PkgCard({
               codeBlock
             />
             <span className="mb-2 mt-4 text-gray-600 dark:text-white/80">
-              Pro version
+              {t("pro-version")}
             </span>
             <CopyBlock
               text={`brew tap qiazo/casks\nbrew install picguard-pro`}
@@ -62,7 +62,7 @@ export default function PkgCard({
           <span className="mt-4 text-gray-600 dark:text-white/80">WinGet</span>
           <div className="mb-2 mt-2 flex flex-col px-2">
             <span className="mb-2 text-gray-600 dark:text-white/80">
-              Free version
+              {t("free-version")}
             </span>
             <CopyBlock
               text="winget install --id Insco.PicGuard"
@@ -72,7 +72,7 @@ export default function PkgCard({
               codeBlock
             />
             <span className="mb-2 mt-4 text-gray-600 dark:text-white/80">
-              Pro version
+              {t("pro-version")}
             </span>
             <CopyBlock
               text="winget install --id Insco.PicGuard.Pro"
@@ -87,7 +87,7 @@ export default function PkgCard({
           </span>
           <div className="mb-2 mt-2 flex flex-col px-2">
             <span className="mb-2 text-gray-600 dark:text-white/80">
-              Free version
+              {t("free-version")}
             </span>
             <CopyBlock
               text="choco install picguard"
@@ -97,7 +97,7 @@ export default function PkgCard({
               codeBlock
             />
             <span className="mb-2 mt-4 text-gray-600 dark:text-white/80">
-              Pro version
+              {t("pro-version")}
             </span>
             <CopyBlock
               text="choco install picguard-pro"
@@ -110,7 +110,7 @@ export default function PkgCard({
           <span className="mt-6 text-gray-600 dark:text-white/80">Scoop</span>
           <div className="mb-2 mt-2 flex flex-col px-2">
             <span className="mb-2 text-gray-600 dark:text-white/80">
-              Free version
+              {t("free-version")}
             </span>
             <CopyBlock
               text={`scoop bucket add qiazo_scoop-bucket https://github.com/qiazo/scoop-bucket\nscoop install qiazo_scoop-bucket/picguard`}
@@ -120,7 +120,7 @@ export default function PkgCard({
               codeBlock
             />
             <span className="mb-2 mt-4 text-gray-600 dark:text-white/80">
-              Pro version
+              {t("pro-version")}
             </span>
             <CopyBlock
               text={`scoop bucket add qiazo_scoop-bucket https://github.com/qiazo/scoop-bucket\nscoop install qiazo_scoop-bucket/picguard-pro`}
@@ -137,7 +137,7 @@ export default function PkgCard({
           <span className="mt-4 text-gray-600 dark:text-white/80">Flatpak</span>
           <div className="mb-2 mt-2 flex flex-col px-2">
             <span className="mb-2 text-gray-600 dark:text-white/80">
-              Free version
+              {t("free-version")}
             </span>
             <CopyBlock
               text="flatpak install com.kjxbyz.PicGuard"
@@ -147,7 +147,7 @@ export default function PkgCard({
               codeBlock
             />
             <span className="mb-2 mt-4 text-gray-600 dark:text-white/80">
-              Pro version
+              {t("pro-version")}
             </span>
             <CopyBlock
               text="flatpak install com.kjxbyz.PicGuardPro"
@@ -160,7 +160,7 @@ export default function PkgCard({
           <span className="mt-6 text-gray-600 dark:text-white/80">Snap</span>
           <div className="mb-2 mt-2 flex flex-col px-2">
             <span className="mb-2 text-gray-600 dark:text-white/80">
-              Free version
+              {t("free-version")}
             </span>
             <CopyBlock
               text="sudo snap install picguard"
@@ -170,7 +170,7 @@ export default function PkgCard({
               codeBlock
             />
             <span className="mb-2 mt-4 text-gray-600 dark:text-white/80">
-              Pro version
+              {t("pro-version")}
             </span>
             <CopyBlock
               text="sudo snap install picguard-pro"
@@ -201,7 +201,7 @@ export default function PkgCard({
             </span>
             <div className="mb-2 mt-2 flex flex-col px-2">
               <span className="mb-2 text-gray-600 dark:text-white/80">
-                Free version
+                {t("free-version")}
               </span>
               <CopyBlock
                 text="sudo pacman -S picguard-bin"
@@ -211,7 +211,7 @@ export default function PkgCard({
                 codeBlock
               />
               <span className="mb-2 mt-4 text-gray-600 dark:text-white/80">
-                Pro version
+                {t("pro-version")}
               </span>
               <CopyBlock
                 text="sudo pacman -S picguard-pro-bin"
@@ -226,7 +226,7 @@ export default function PkgCard({
             </span>
             <div className="mb-2 mt-2 flex flex-col px-2">
               <span className="mb-2 text-gray-600 dark:text-white/80">
-                Free version
+                {t("free-version")}
               </span>
               <CopyBlock
                 text="yay -Sy picguard-bin"
@@ -236,7 +236,7 @@ export default function PkgCard({
                 codeBlock
               />
               <span className="mb-2 mt-4 text-gray-600 dark:text-white/80">
-                Pro version
+                {t("pro-version")}
               </span>
               <CopyBlock
                 text="yay -Sy picguard-pro-bin"
@@ -252,7 +252,7 @@ export default function PkgCard({
     };
 
     return links;
-  }, [theme]);
+  }, [theme, t]);
 
   return storeLinks[platform] ? (
     <div className="flex min-h-64 w-full max-w-screen-xl animate-fade-up flex-col rounded-xl border border-gray-200 p-4 hover:shadow-md dark:border-gray-700 dark:hover:shadow-gray-700">

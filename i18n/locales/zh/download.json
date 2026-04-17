@@ -4,5 +4,7 @@
   "binaries": "二进制文件",
   "binaries-description": "可供离线使用的下载",
   "package-managers": "包管理器",
-  "package-managers-description": "通过终端安装"
+  "package-managers-description": "通过终端安装",
+  "free-version": "基础版本",
+  "pro-version": "专业版本"
 }

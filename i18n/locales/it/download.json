@@ -4,5 +4,7 @@
   "binaries": "Binaries",
   "binaries-description": "Download for offline usage.",
   "package-managers": "Package Managers",
-  "package-managers-description": "Install with terminal."
+  "package-managers-description": "Install with terminal.",
+  "free-version": "Versione gratuita",
+  "pro-version": "Versione Pro"
 }
