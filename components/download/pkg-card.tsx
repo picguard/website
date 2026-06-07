@@ -26,7 +26,7 @@ export default function PkgCard({
               {t("free-version")}
             </span>
             <CopyBlock
-              text={`brew tap qiazo/casks\nbrew install picguard`}
+              text={`brew tap picguard/casks\nbrew install picguard`}
               language="bash"
               theme={{ mode: theme as any }}
               showLineNumbers
@@ -36,7 +36,7 @@ export default function PkgCard({
               {t("pro-version")}
             </span>
             <CopyBlock
-              text={`brew tap qiazo/casks\nbrew install picguard-pro`}
+              text={`brew tap picguard/casks\nbrew install picguard-pro`}
               language="bash"
               theme={{ mode: theme as any }}
               showLineNumbers
@@ -65,7 +65,7 @@ export default function PkgCard({
               {t("free-version")}
             </span>
             <CopyBlock
-              text="winget install --id Insco.PicGuard"
+              text="winget install --id PicGuard.PicGuard"
               language="bash"
               theme={{ mode: theme as any }}
               showLineNumbers
@@ -75,7 +75,7 @@ export default function PkgCard({
               {t("pro-version")}
             </span>
             <CopyBlock
-              text="winget install --id Insco.PicGuard.Pro"
+              text="winget install --id PicGuard.PicGuard.Pro"
               language="bash"
               theme={{ mode: theme as any }}
               showLineNumbers
@@ -113,7 +113,7 @@ export default function PkgCard({
               {t("free-version")}
             </span>
             <CopyBlock
-              text={`scoop bucket add qiazo_scoop-bucket https://github.com/qiazo/scoop-bucket\nscoop install qiazo_scoop-bucket/picguard`}
+              text={`scoop bucket add picguard_scoop-bucket https://github.com/picguard/scoop-bucket\nscoop install picguard_scoop-bucket/picguard`}
               language="bash"
               theme={{ mode: theme as any }}
               showLineNumbers
@@ -123,7 +123,7 @@ export default function PkgCard({
               {t("pro-version")}
             </span>
             <CopyBlock
-              text={`scoop bucket add qiazo_scoop-bucket https://github.com/qiazo/scoop-bucket\nscoop install qiazo_scoop-bucket/picguard-pro`}
+              text={`scoop bucket add picguard_scoop-bucket https://github.com/picguard/scoop-bucket\nscoop install picguard_scoop-bucket/picguard-pro`}
               language="bash"
               theme={{ mode: theme as any }}
               showLineNumbers
