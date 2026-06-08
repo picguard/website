@@ -138,7 +138,7 @@ export default function StoreCard({
             </Link>
           </div>
           <span className="mt-6 text-gray-600 dark:text-white/80">
-            Huawei Market
+            Huawei AppGallery
           </span>
           <div className="mb-2 mt-2 flex flex-col px-2">
             <span className="mb-2 text-gray-600 dark:text-white/80">
@@ -150,8 +150,8 @@ export default function StoreCard({
             >
               <img
                 width="220"
-                alt="Get it on Huawei Market"
-                src="/images/Download-on-the-Huawei-Market.png"
+                alt="Get it on Huawei AppGallery"
+                src="/images/Download-on-the-Huawei-AppGallery.png"
                 loading="lazy"
                 decoding="async"
               />
