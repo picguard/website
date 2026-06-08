@@ -77,6 +77,106 @@ export default function StoreCard({
               />
             </Link>
           </div>
+          <span className="mt-6 text-gray-600 dark:text-white/80">
+            Xiaomi Store
+          </span>
+          <div className="mb-2 mt-2 flex flex-col px-2">
+            <span className="mb-2 text-gray-600 dark:text-white/80">
+              {t("free-version")}
+            </span>
+            <Link
+              target="_blank"
+              href="https://app.mi.com/details?id=com.kjxbyz.picguard"
+            >
+              <img
+                width="220"
+                alt="Get it on Xiaomi Store"
+                src="/images/Download-on-the-Xiaomi-Store.png"
+                loading="lazy"
+                decoding="async"
+              />
+            </Link>
+          </div>
+          <span className="mt-6 text-gray-600 dark:text-white/80">
+            OPPO Store
+          </span>
+          <div className="mb-2 mt-2 flex flex-col px-2">
+            <span className="mb-2 text-gray-600 dark:text-white/80">
+              {t("free-version")}
+            </span>
+            <Link
+              target="_blank"
+              href="https://app.cdo.oppomobile.com/home/detail?app_id=32449367"
+            >
+              <img
+                width="220"
+                alt="Get it on OPPO Store"
+                src="/images/Download-on-the-OPPO-Store.png"
+                loading="lazy"
+                decoding="async"
+              />
+            </Link>
+          </div>
+          <span className="mt-6 text-gray-600 dark:text-white/80">
+            Honor Market
+          </span>
+          <div className="mb-2 mt-2 flex flex-col px-2">
+            <span className="mb-2 text-gray-600 dark:text-white/80">
+              {t("free-version")}
+            </span>
+            <Link
+              target="_blank"
+              href="honormarket://details?id=com.kjxbyz.picguard"
+            >
+              <img
+                width="220"
+                alt="Get it on Honor Market"
+                src="/images/Download-on-the-Honor-Market.png"
+                loading="lazy"
+                decoding="async"
+              />
+            </Link>
+          </div>
+          <span className="mt-6 text-gray-600 dark:text-white/80">
+            Huawei Market
+          </span>
+          <div className="mb-2 mt-2 flex flex-col px-2">
+            <span className="mb-2 text-gray-600 dark:text-white/80">
+              {t("free-version")}
+            </span>
+            <Link
+              target="_blank"
+              href="https://appgallery.huawei.com/app/C117576075"
+            >
+              <img
+                width="220"
+                alt="Get it on Huawei Market"
+                src="/images/Download-on-the-Huawei-Market.png"
+                loading="lazy"
+                decoding="async"
+              />
+            </Link>
+          </div>
+          <span className="mt-6 text-gray-600 dark:text-white/80">
+            Samsung Store
+          </span>
+          <div className="mb-2 mt-2 flex flex-col px-2">
+            <span className="mb-2 text-gray-600 dark:text-white/80">
+              {t("free-version")}
+            </span>
+            <Link
+              target="_blank"
+              href="https://galaxystore.samsung.com/detail/com.kjxbyz.picguard"
+            >
+              <img
+                width="220"
+                alt="Get it on Samsung Store"
+                src="/images/Download-on-the-Samsung-Store.png"
+                loading="lazy"
+                decoding="async"
+              />
+            </Link>
+          </div>
           <span className="mt-6 text-gray-600 dark:text-white/80">Amazon</span>
           <div className="mb-2 mt-2 flex flex-col px-2">
             <span className="mb-2 text-gray-600 dark:text-white/80">
