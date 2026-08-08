@@ -97,6 +97,24 @@ export default function StoreCard({
               />
             </Link>
           </div>
+          <span className="mt-6 text-gray-600 dark:text-white/80">GetApps</span>
+          <div className="mb-2 mt-2 flex flex-col px-2">
+            <span className="mb-2 text-gray-600 dark:text-white/80">
+              {t("free-version")}
+            </span>
+            <Link
+              target="_blank"
+              href="https://global.app.mi.com/details?id=com.kjxbyz.picguard"
+            >
+              <img
+                width="220"
+                alt="Get it on GetApps"
+                src="/images/Download-on-the-GetApps.svg"
+                loading="lazy"
+                decoding="async"
+              />
+            </Link>
+          </div>
           <span className="mt-6 text-gray-600 dark:text-white/80">
             OPPO Store
           </span>
